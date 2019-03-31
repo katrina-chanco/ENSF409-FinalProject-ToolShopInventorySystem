@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class FrontEnd {
 	/**
 	 * Presents the selection menu for the user.
-	 * @param shop Shop object that the menu is working for.
+	 * @param shop ServerShop object that the menu is working for.
 	 */
 	public static void presentMenu(Shop shop) {
 		Scanner scanner = new Scanner(System.in);
@@ -44,9 +44,9 @@ public class FrontEnd {
 	}
 
 	/**
-	 * Make a sale for Shop.
+	 * Make a sale for ServerShop.
 	 * If the ordered quantity is greater that the quantity in stock the order is canceled.
-	 * @param shop Shop to purchase from.
+	 * @param shop ServerShop to purchase from.
 	 * @param scanner Scanner to read input.
 	 */
 	private static void makeASale(Shop shop, Scanner scanner) {
@@ -65,7 +65,7 @@ public class FrontEnd {
 	}
 	/**
 	 * Prints the searched for item.
-	 * @param shop  Shop object to be used.
+	 * @param shop  ServerShop object to be used.
 	 * @param scanner Scanner object to be used for selection input.
 	 */
 	private static void searchForItemPrint(Shop shop, Scanner scanner) {
@@ -75,7 +75,7 @@ public class FrontEnd {
 
 	/**
 	 * Search for an item after requesting to search for ID or NAME.
-	 * @param shop Shop to be searched in.
+	 * @param shop ServerShop to be searched in.
 	 * @param scanner Scanner to be used for user input.
 	 * @return  Found item object or null if no item is found.
 	 */
@@ -102,7 +102,7 @@ public class FrontEnd {
 
 	/**
 	 * Check the quantity of an item after searching for the item.
-	 * @param shop Shop to use.
+	 * @param shop ServerShop to use.
 	 * @param scanner Scanner to use to read.
 	 */
 	private static void checkQuantity(Shop shop, Scanner scanner) {
@@ -113,7 +113,7 @@ public class FrontEnd {
 
 	/**
 	 * Search inventory by id. Return found item or null of no item found.
-	 * @param shop Shop to search in.
+	 * @param shop ServerShop to search in.
 	 * @return  Item found.
 	 */
 	private static Item searchById(Shop shop) {
@@ -131,7 +131,7 @@ public class FrontEnd {
 
 	/**
 	 * Search inventory by Name. Return found item or null of no item found.
-	 * @param shop Shop to search in.
+	 * @param shop ServerShop to search in.
 	 * @return  Item found.
 	 */
 	private static Item searchByName(Shop shop) {
@@ -149,7 +149,7 @@ public class FrontEnd {
 
 	/**
 	 * List all the items in inventory.
-	 * @param shop Shop to list inventory from.
+	 * @param shop ServerShop to list inventory from.
 	 */
 	private static void listTools(Shop shop) {
 		System.out.println("Items: ");

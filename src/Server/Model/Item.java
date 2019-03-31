@@ -1,3 +1,5 @@
+package Server.Model;
+import Server.Controller.*;
 /**
  * Item class for the shop.
  */
@@ -35,6 +37,15 @@ public class Item implements Constants{
 		this.itemName = name;
 		this.quantity = quantity;
 		this.price = price;
+	}
+
+
+	/**
+	 * Getter for price.
+	 * @return Item price.
+	 */
+	public double getPrice() {
+		return price;
 	}
 
 	/**
