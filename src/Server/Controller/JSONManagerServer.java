@@ -1,6 +1,5 @@
 package Server.Controller;
 
-import Server.Model.Inventory;
 import org.json.JSONObject;
 
 /**
@@ -13,10 +12,18 @@ public class JSONManagerServer<Type> {
 	private JSONObject jsonObject;
 
 	/**
-	 * Constructor for the manager.
+	 * Constructor for the manager from an object.
 	 * @param item
 	 */
 	public JSONManagerServer(Type item) {
+		jsonObject = new JSONObject(item);
+	}
+
+	/**
+	 * Constructor for the manager from an string.
+	 * @param item
+	 */
+	public JSONManagerServer(String item) {
 		jsonObject = new JSONObject(item);
 	}
 

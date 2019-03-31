@@ -3,6 +3,7 @@ import Server.Model.*;
 
 import java.util.ArrayList;
 
+
 /**
  * Class to show how to send and receive JSON data. NOT FOR FINAL PROJECT
  */
@@ -27,5 +28,11 @@ public class CommunicateShowCase {
 		JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(shop.getInventory());
 
 		System.out.println(inventoryJSONManagerServer.getJsonObject().toString());
+		String arr = inventoryJSONManagerServer.getJsonObject().getJSONArray("itemList").get(0).toString();
+
+		//this could be used to send a single item as as string over the socket and then remake it on the client side
+
+		JSONManagerServer json = new JSONManagerServer<>(arr);
+		System.out.println(json.getJsonObject().getString("itemName"));
 	}
 }
