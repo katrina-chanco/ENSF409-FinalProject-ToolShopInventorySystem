@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ensf-409-term-project-cloud",
+  "private_key_id": "9ab2d2117085ffe8e7a708409b347993285235ca",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCkEJL45NNK0x4h\nawHuK6sBnizE7JWvikaiPP4zl3WEjshMYVc56NdHlGjPNJsWWTZNPXhSSsd/AkXR\n0CKhAU6pPL21v2LNMqXFDW26hVhFXwgun/WgQDltfVRGfWtnkeg5b2JhoIL36PTS\nyr04BhZYLMiQbYvOCB8lYhqjob3grzJ/OjFOEsgtCafUF/b258+lJhQa+0WGg7FA\nVMyjqUJclnv7yZzra3LpAMjgu/16IF1jjx/R85S/5QBZSB9aZWFiaSoLKY+2g1pv\nQkPXd3fF5TxFQPFJDTvvVyQ4ck0C2/Ipx8T68CX5QlYAwW1vcssGU3PSPHGWH5lu\nq0J+nsppAgMBAAECggEAB/eklYjyQF3ahpuuWTE+cZqLeMg2+DJ+PeJ5o0qBit2O\nuVPYUy/9JWUeBmL6/ZW5Qvy/Vzq5r6+t8ZOanOhF+EbCfT0lOIsTPQurBp3zZJIK\nAQ6kVGMODuTBVxd/4+SUaxafR9euSIkD+6kcEYiNJPzOxCHHwmqHTa7TFZt1D8BK\naI4/TSeYoSINI6hEA0VooxAuA84ItUIE5CK/I6RtYpLsuSSU1GFrXKvHPTHyCLmu\nK5eW5LO7wIGD5Y5E18odb2cASLnJewCrMaGfepzTiE3lML/5fXkvMo5oOmTC+ogb\nyGx1wehbhPI7JoOzbFg4EhfuKDwFOWVIz2zq5RkFUQKBgQDTnx8EqQRhL/ufenic\nmvzO97iOEC44V596iC00dU4PYlP0SczurNow7N+q0jALNZxNsCsi107fsmmXKJeB\n9i2+jFWL8Y1qhc4sPuhJmlXOdiZA2crpnf2BnTdIUTbgFoxIpJY5z5+hBJ5Yglvo\nUQuGHljnigqLHRV4BJnvF50J8QKBgQDGeF7VTF94QP/QSfw0GS6RHStRYKITvtW5\nIAHtjbLXwyAwmNDlJUKUxvWeULs0Ygn8oqtEMUKB+eeGlYjBqetNu5aA2mQYLSqk\neiWVjaJZN1bbbzpyfg2XsYtPRo+AkPfezppJsbw1vcCl6JXEVqCWUCyj0Q3HB18n\n3M/+1PsP+QKBgEAWNSeNI+VmyZXfWf1bNmpbPMnQ/p5TctmBuebkC3K/PVuCqgwx\nzpX4djfeFWyfnKkuS7HucFVwS2fahB94dRv6lcGeskvrH6fomSIJGik/QJBtJHUh\nQm9pNB+zcKHmUi+BoHj7doUlx+pX+Atf19STBiuAc3bzpNfG1PNCPG2RAoGBAKXG\no0e8vD3A5SxAsCWAJzJUz/rwIVEm5HP2NUYMRqcMOBX/fvT3s2575Wsweb3eagMY\niL+z+Z6BdA8pVgqVeJL8LlFAmbzL9UNfN4d8v2+P1sABXyuE+KuNRBSaloDIFhKI\nNb16dP/amFC8PmS6CvaizzaiBsUI9kVgnmd31KFZAoGBAIj4PyIh9g7Pz7SFRh7A\n70Dl4ozuRKs8nAo3IzMzlixHvPYailOIztN4xoRCtAsj1bfG/Qm+Yt3Uvbt6O4ff\nMfZIUIP6FVzBaOX6FuSg1Arlf5WQ+/wMsFttNzeA39B5Az2oRmqkIxdeVPn0vbAE\nDwku2f6kGBf+EaWv39RXWKQC\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-09-term-project-cloud@ensf-409-term-project-cloud.iam.gserviceaccount.com",
+  "client_id": "111527768458096702827",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-09-term-project-cloud%40ensf-409-term-project-cloud.iam.gserviceaccount.com"
+}
