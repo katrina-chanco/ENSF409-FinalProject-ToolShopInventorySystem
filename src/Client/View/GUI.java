@@ -115,7 +115,8 @@ public class GUI {
 					return;
 				}
 				
-				String message = JOptionPane.showInputDialog("I'm sorry Dave, I'm afraid I can't do that");
+				String message ="";
+				message += JOptionPane.showInputDialog("I'm sorry Dave, I'm afraid I can't do that");
 				if(message.equals("quit")) {
 					System.exit(1);
 				}
