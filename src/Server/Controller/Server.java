@@ -50,8 +50,7 @@ public class Server {
         shopServer.readSupplierFile();
         shopServer.readItemFile();
 
-
-        //THIS IS STILL UNDER DEVELOPMENT
+        
         JSONManagerServer nullCheck = new JSONManagerServer();
 
         String input = null;
@@ -97,18 +96,17 @@ public class Server {
                         break;
 
 
-                    //THIS SECTION IS STILL UNDER DEVELOPMENT
+
                     case "decreaseQuantity":
                         int numberDecrease = obj.getInt("number");
                         Item workingItem = shopServer.getInventory().searchById(numberDecrease);
                         int amountDecrease = obj.getInt("amount");
-                        JSONManagerServer<Boolean> decreaseQuantityJSONManagerServer = new JSONManagerServer<>(shopServer.addSale(workingItem, amountDecrease));
 
-                        if(decreaseQuantityJSONManagerServer.equals(true)){
+                        if((shopServer.addSale(workingItem, amountDecrease)) == true){
                             JSONManagerServer messageDecrease = new JSONManagerServer("success");
                             outSocket.println(messageDecrease.getJsonObject().toString());
                         }
-                        else if (decreaseQuantityJSONManagerServer.equals(false)){
+                        else if ((shopServer.addSale(workingItem, amountDecrease)) == false){
                             JSONManagerServer messageDecrease = new JSONManagerServer("failure");
                             outSocket.print(messageDecrease.getJsonObject().toString());
                         }

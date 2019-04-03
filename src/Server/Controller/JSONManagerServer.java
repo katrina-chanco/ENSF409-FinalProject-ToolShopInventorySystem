@@ -19,13 +19,13 @@ public class JSONManagerServer<Type> {
 		jsonObject = new JSONObject(item);
 	}
 
-	//THIS SECTION IS STILL UNDER DEVELOPMENT
+
 	public JSONManagerServer(){
 		jsonObject = new JSONObject();
 		jsonObject.isNull("nullType");
 	}
 
-	//THIS SECTION IS STILL UNDER DEVELOPMENT
+
 	public JSONManagerServer(String flag){
 		jsonObject = new JSONObject();
 

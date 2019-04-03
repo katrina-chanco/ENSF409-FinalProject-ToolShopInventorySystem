@@ -73,8 +73,8 @@ public class Client {
     public static void main(String[] args) throws IOException{
 
         Client client = new Client("localhost", 1234);
-        JSONObject obj = client.listAllTools();
-        System.out.println(obj.toString());
+        //JSONObject obj = client.listAllTools();
+        //System.out.println(obj.toString());
 
         //JSONObject obj2 = client.quit();
         //System.out.println(obj2.toString());
@@ -88,9 +88,9 @@ public class Client {
         //JSONObject obj4 = client.searchToolId(8001);
         //System.out.println(obj4.toString());
 
-        //THIS SECTION IS STILL UNDER DEVELOPMENT
-        //JSONObject obj5 = client.decreaseQuantity(1000, 2);
-        //System.out.println(obj5.toString());
+
+        JSONObject obj5 = client.decreaseQuantity(1000, 2);
+        System.out.println(obj5.toString());
 
     }
 
