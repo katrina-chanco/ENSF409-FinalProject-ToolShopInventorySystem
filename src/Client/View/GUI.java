@@ -36,10 +36,14 @@ public class GUI {
 		JPanel t = new JPanel();
 		t.add(title);
 		t.setForeground(new Color(192, 192, 192));
-		t.setBackground(new Color(255, 252, 21));
+		t.setBackground(new Color(217, 192, 175));
 		
 		ImageIcon logo = new ImageIcon("logo.jpg");
 		JLabel l = new JLabel(logo);
+		l.setVisible(false);
+		ImageIcon dlogo = new ImageIcon("Wood Grain background.jpg");
+		JLabel dl = new JLabel(dlogo);
+		dl.setVisible(true);
 		
 		mainButtons = new JPanel();
 		mainButtons.setLayout(new GridLayout(1, 5));
@@ -47,16 +51,16 @@ public class GUI {
 		JButton b2 = new JButton("Check Quantity");
 		JButton b3 = new JButton("Make Sale");
 		JButton b4 = new JButton("Search");
-		JButton b5 = new JButton("Quit");
-		b1.setBackground(new Color(19, 232, 136));
+		JButton b5 = new JButton("K.E.N");
+		b1.setBackground(new Color(110, 168, 122));
 		b1.setForeground(new Color(0, 0, 0));
-		b2.setBackground(new Color(34, 60, 255));
+		b2.setBackground(new Color(39, 162, 164));
 		b2.setForeground(new Color(0, 0, 0));
-		b3.setBackground(new Color(232, 19, 145));
+		b3.setBackground(new Color(163, 115, 160));
 		b3.setForeground(new Color(0, 0, 0));
-		b4.setBackground(new Color(255, 159, 42));
+		b4.setBackground(new Color(201, 121, 69));
 		b4.setForeground(new Color(0, 0, 0));
-		b5.setBackground(new Color(255, 0, 0));
+		b5.setBackground(new Color(201, 86, 79));
 		b5.setForeground(new Color(0, 0, 0));
 		
 		b1.addActionListener(new ActionListener() {
@@ -99,11 +103,23 @@ public class GUI {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				if(!l.isVisible()) {
+					dl.setVisible(false);
+					l.setVisible(true);
+					mainMenu.add(l, BorderLayout.CENTER);
+					b5.setText("Quit");
+					b1.setEnabled(false);
+					b2.setEnabled(false);
+					b3.setEnabled(false);
+					b4.setEnabled(false);
+					return;
+				}
+				
 				String message = JOptionPane.showInputDialog("I'm sorry Dave, I'm afraid I can't do that");
 				if(message.equals("quit")) {
 					System.exit(1);
 				}
-				else if(message.equals("")) {
+				else if(message.equals("") || message.equals(null)) {
 					return;
 				}
 				else if(message.equals("What's the problem?")) {
@@ -129,7 +145,7 @@ public class GUI {
 		mainMenu.setMinimumSize(new Dimension(2000, 2000));
 		mainMenu.add(mainButtons, BorderLayout.SOUTH);
 		mainMenu.add(t, BorderLayout.NORTH);
-		mainMenu.add(l, BorderLayout.CENTER);
+		mainMenu.add(dl, BorderLayout.CENTER);
 		mainMenu.setVisible(true);
 		
 	}
