@@ -165,14 +165,14 @@ public class GUI {
 		}
 	}
 	
-	public static void main(String[] args) {
-		GUI shop = new GUI();
-		JFrame frame = new JFrame("GUI");
-		shop.startMainMenu();
-		frame.setContentPane(shop.getMain());
-		frame.setSize(650, 565);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	}
+//	public static void main(String[] args) {
+//		GUI shop = new GUI();
+//		JFrame frame = new JFrame("GUI");
+//		shop.startMainMenu();
+//		frame.setContentPane(shop.getMain());
+//		frame.setSize(650, 565);
+//		frame.setVisible(true);
+//		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//	}
 }
 
