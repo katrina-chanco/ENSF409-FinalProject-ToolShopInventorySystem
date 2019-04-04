@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import org.json.JSONObject;
 
+
 public class Client {
 
     private Socket aSocket;
@@ -69,40 +70,41 @@ public class Client {
 
     }
 
-    public static void main(String[] args) throws IOException{
-
-        Client client = new Client("localhost", 1234);
-        //JSONObject obj = client.listAllTools();
-        //System.out.println(obj.toString());
-
-        //JSONObject obj2 = client.quit();
-        //System.out.println(obj2.toString());
-
-
-        //Orf Dappers
-        //JSONObject obj3 = client.searchToolName("Slam Hammer");
-        //System.out.println(obj3.toString());
-
-        //1000
-        //JSONObject obj4 = client.searchToolId(8001);
-        //System.out.println(obj4.toString());
-
-
-        JSONObject obj5 = client.decreaseQuantity(1000, 2);
-        System.out.println(obj5.toString());
-
-    }
-
-
+//    public static void main(String[] args) throws IOException{
+//
+//        Client client = new Client("localhost", 1234);
+//        //JSONObject obj = client.listAllTools();
+//        //System.out.println(obj.toString());
+//
+//        //JSONObject obj2 = client.quit();
+//        //System.out.println(obj2.toString());
+//
+//
+//        //Orf Dappers
+//        //JSONObject obj3 = client.searchToolName("Slam Hammer");
+//        //System.out.println(obj3.toString());
+//
+//        //1000
+//        //JSONObject obj4 = client.searchToolId(8001);
+//        //System.out.println(obj4.toString());
+//
+//
+//        JSONObject obj5 = client.decreaseQuantity(1000, 2);
+//        System.out.println(obj5.toString());
+//
+//    }
 
 
 
 
-    public JSONObject listAllTools() throws IOException{
+
+
+    public String listAllTools() throws IOException{
 
         JSONManagerClient inventoryClient = new JSONManagerClient("listAllTools");
         communicateWithServer(inventoryClient);
-        return finalObj;
+        String s = finalObj.toString();
+        return s;
     }
 
 

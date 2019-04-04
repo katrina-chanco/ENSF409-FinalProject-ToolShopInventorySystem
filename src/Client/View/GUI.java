@@ -2,14 +2,11 @@ package Client.View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,12 +15,18 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
-import javax.swing.text.StyledEditorKit.FontSizeAction;
+
+import Client.Controller.Client;
 
 public class GUI {
 
 	private JPanel mainMenu;
 	private JPanel mainButtons;
+	private Client user;
+	
+	public GUI() {
+		user = new Client("localhost", 1234);
+	}
 	
 	public JPanel getMain() {
 		return mainMenu;
@@ -68,6 +71,7 @@ public class GUI {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("b1 pushed");
+				listInv();
 				
 			}
 		});
@@ -149,6 +153,16 @@ public class GUI {
 		mainMenu.add(dl, BorderLayout.CENTER);
 		mainMenu.setVisible(true);
 		
+	}
+	
+	public void listInv() {
+		try {
+			String s = user.listAllTools();
+			System.out.println(s);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public static void main(String[] args) {
