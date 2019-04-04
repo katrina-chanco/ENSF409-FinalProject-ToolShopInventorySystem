@@ -50,7 +50,7 @@ public class Server {
         shopServer.readSupplierFile();
         shopServer.readItemFile();
 
-        
+
         JSONManagerServer nullCheck = new JSONManagerServer();
 
         String input = null;
