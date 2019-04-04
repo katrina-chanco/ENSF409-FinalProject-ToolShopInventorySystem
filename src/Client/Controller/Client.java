@@ -59,12 +59,13 @@ public class Client {
             catch(Exception e) {
                 e.printStackTrace();
             } finally {
-                try{
-                    inSocket.close();
-                    outSocket.close();
-                }catch (IOException e){
-                    System.err.println("Closing error: " + e.getMessage());
-                }
+//            	THIS NEEDS TO BE CLOSED FROM THE CLIENT CONTROLLER WHEN THE WINDOW IS CLOSED
+//                try{
+//                	inSocket.close();
+//                	outSocket.close();
+//                }catch (IOException e){
+//                    System.err.println("Closing error: " + e.getMessage());
+//                }
             }
 
 
