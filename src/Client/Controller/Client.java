@@ -13,11 +13,13 @@ public class Client {
     private Socket aSocket;
     private BufferedReader inSocket;
     private PrintWriter outSocket;
+    private JSONObject finalObj;
 
 
 
-
-
+    /*
+     * Constructor for the client, initializes the sockets 
+     */
     public Client(String serverName, int portNumber) {
         try{
 
@@ -31,8 +33,11 @@ public class Client {
 
     }
 
-    private JSONObject finalObj;
-
+    
+    /*
+     * Communicates with the server, receives a JSONManagerClient object and sends it to the server
+     * The response from the server is received from the inSocket and returned to the calling function
+     */
     public void communicateWithServer(JSONManagerClient jObject) throws IOException{
 
 
@@ -40,8 +45,6 @@ public class Client {
         boolean flag = true;
             try{
                 while(flag){
-//				Do we need this while loop here if at the end of it we always break the loop?
-//              Should we be reinitializing finalObj at the beginning of this method?          
                 	outSocket.println(jObject.getJsonObject().toString());
                         response = inSocket.readLine();
 
@@ -59,72 +62,24 @@ public class Client {
             }
             catch(Exception e) {
                 e.printStackTrace();
-            } //finally {
-//            	THIS NEEDS TO BE CLOSED FROM THE CLIENT CONTROLLER WHEN THE WINDOW IS CLOSED
-//                try{
-//                	inSocket.close();
-//                	outSocket.close();
-//                }catch (IOException e){
-//                    System.err.println("Closing error: " + e.getMessage());
-//                }
-           // }
-
+            } 
 
     }
 
-//    public static void main(String[] args) throws IOException{
-//
-//        Client client = new Client("localhost", 1234);
-//        //JSONObject obj = client.listAllTools();
-//        //System.out.println(obj.toString());
-//
-//        //JSONObject obj2 = client.quit();
-//        //System.out.println(obj2.toString());
-//
-//
-//        //Orf Dappers
-//        //JSONObject obj3 = client.searchToolName("Slam Hammer");
-//        //System.out.println(obj3.toString());
-//
-//        //1000
-//        //JSONObject obj4 = client.searchToolId(8001);
-//        //System.out.println(obj4.toString());
-//
-//
-//        JSONObject obj5 = client.decreaseQuantity(1000, 2);
-//        System.out.println(obj5.toString());
-//
-//    }
-
-
-
-
-
-
+    /*
+     * sends a command to list all tools to the socket
+     */
     public JSONObject listAllTools() throws IOException{
 
         JSONManagerClient inventoryClient = new JSONManagerClient("listAllTools");
         communicateWithServer(inventoryClient);
 
-        //Obtain the JSONObject from Client, and parse the object using keywords into separate strings that can then be formatted to look nice in the View
-
-        //PARSE START
-//        JSONObject item = new JSONObject(finalObj.getJSONArray("ItemList").get(0));// Iterating through the itemList (the first "INDEX" of the itemList)
-//        String itemName = item.getString("itemName");
-//        String quantity = item.getString("quantity");
-//        String price = item.getString("price");
-//
-//        JSONObject supplier = new JSONObject(item.get("supplier"));
-//        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
-//        String supplierId = supplier.getString("id");
-//        String itemId = supplier.getString("id"); //THEY ARE BOTH THE KEY "id" so that might become a problem?
-//        //PARSE END
-
-
         return finalObj;
     }
 
-
+    /*
+     * Sends a quit command to the socket, used to show the client has ended
+     */
     public JSONObject quit() throws IOException{
         JSONManagerClient inventoryClient = new JSONManagerClient("QUIT");
         communicateWithServer(inventoryClient);
@@ -132,6 +87,9 @@ public class Client {
     }
 
 
+    /*
+     * sends a search command to the socket to search by tool name
+     */
     public JSONObject searchToolName(String toolName) throws IOException{
 
         JSONManagerClient searchToolNameClient = new JSONManagerClient("searchToolName", toolName);
@@ -147,6 +105,9 @@ public class Client {
     }
 
 
+    /*
+     * Sends a search command to the socket to search for a tool by id number
+     */
     public JSONObject searchToolId (int toolId) throws IOException{
 
         JSONManagerClient searchToolIdClient = new JSONManagerClient("searchToolId", toolId);
@@ -162,6 +123,9 @@ public class Client {
     }
 
 
+    /*
+     * Sends a command to the socket to decrease the quantity of a tool(passed as toolId) by a certain amount(passed as amount)
+     */
     public JSONObject decreaseQuantity(int toolId, int amount) throws IOException {
 
         JSONManagerClient decreaseQuantityClient = new JSONManagerClient("decreaseQuantity", toolId, amount);
@@ -175,7 +139,9 @@ public class Client {
             return finalObj;
         }
     }
-    
+    /*
+     * Closes the sockets
+     */
     public void close() {
     	try {
 			inSocket.close();
