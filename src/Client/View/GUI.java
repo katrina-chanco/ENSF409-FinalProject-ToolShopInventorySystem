@@ -23,14 +23,33 @@ public class GUI {
 	private JPanel mainMenu;
 	private JPanel mainButtons;
 	private Client user;
+	private JLabel l;
+	private JLabel dl;
+	private JButton b1;
+	private JButton b2;
+	private JButton b3;
+	private JButton b4;
+	private JButton b5;
+	private B1 lb1;
+	private B2 lb2;
+	private B3 lb3;
+	private B4 lb4;
+	private B5 lb5;
 	
-	public GUI() {
-		user = new Client("localhost", 1234);
-	}
 	
-	public JPanel getMain() {
-		return mainMenu;
-	}
+	public JPanel getMain() {return mainMenu;}
+	public JLabel getL() { return l;}
+	public JLabel getDL() {return dl;}
+	public JButton getB1() {return b1;}
+	public JButton getB2() {return b2;}
+	public JButton getB3() {return b3;}
+	public JButton getB4() {return b4;}
+	public JButton getB5() {return b5;}
+	public void setB1(B1 b) {lb1 = b;}
+	public void setB2(B2 b) {lb2 = b;}
+	public void setB3(B3 b) {lb3 = b;}
+	public void setB4(B4 b) {lb4 = b;}
+	public void setB5(B5 b) {lb5 = b;}
 	
 	public void startMainMenu() {
 		JLabel title = new JLabel();
@@ -42,19 +61,19 @@ public class GUI {
 		t.setBackground(new Color(217, 192, 175));
 		
 		ImageIcon logo = new ImageIcon("logo.jpg");
-		JLabel l = new JLabel(logo);
+		l = new JLabel(logo);
 		l.setVisible(false);
 		ImageIcon dlogo = new ImageIcon("Wood Grain background.jpg");
-		JLabel dl = new JLabel(dlogo);
+		dl = new JLabel(dlogo);
 		dl.setVisible(true);
 		
 		mainButtons = new JPanel();
 		mainButtons.setLayout(new GridLayout(1, 5));
-		JButton b1 = new JButton("List Inventory");
-		JButton b2 = new JButton("Check Quantity");
-		JButton b3 = new JButton("Make Sale");
-		JButton b4 = new JButton("Search");
-		JButton b5 = new JButton("K.E.N");
+		b1 = new JButton("List Inventory");
+		b2 = new JButton("Check Quantity");
+		b3 = new JButton("Make Sale");
+		b4 = new JButton("Search");
+		b5 = new JButton("K.E.N");
 		b1.setBackground(new Color(110, 168, 122));
 		b1.setForeground(new Color(0, 0, 0));
 		b2.setBackground(new Color(39, 162, 164));
@@ -66,77 +85,11 @@ public class GUI {
 		b5.setBackground(new Color(201, 86, 79));
 		b5.setForeground(new Color(0, 0, 0));
 		
-		b1.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("b1 pushed");
-				listInv();
-				
-			}
-		});
-		
-		b2.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("b2 pushed");
-				
-			}
-		});
-		
-		b3.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("b3 pushed");
-				
-			}
-		});
-		
-		b4.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("b4 pushed");
-				
-			}
-		});
-		
-		b5.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if(!l.isVisible()) {
-					dl.setVisible(false);
-					l.setVisible(true);
-					mainMenu.add(l, BorderLayout.CENTER);
-					b5.setText("Quit");
-					b1.setEnabled(false);
-					b2.setEnabled(false);
-					b3.setEnabled(false);
-					b4.setEnabled(false);
-					return;
-				}
-				
-				String message ="";
-				message += JOptionPane.showInputDialog("I'm sorry Dave, I'm afraid I can't do that");
-				if(message.equals("quit")) {
-					System.exit(1);
-				}
-				else if(message.equals("") || message.equals(null)) {
-					return;
-				}
-				else if(message.equals("What's the problem?")) {
-					message = JOptionPane.showInputDialog("I think you know what the problem is just as well as I do.");
-					if(message.equals("What are you talking about?")) {
-						JOptionPane.showMessageDialog(null, "This application is too important for me to allow you to jeopardize it.");
-						
-					}
-				}
-			}
-		});
-		
+		b1.addActionListener(lb1);
+		b2.addActionListener(lb2);
+		b3.addActionListener(lb3);
+		b4.addActionListener(lb4);
+		b5.addActionListener(lb5);	
 		
 		mainButtons.add(b1);
 		mainButtons.add(b2);
@@ -155,24 +108,5 @@ public class GUI {
 		
 	}
 	
-	public void listInv() {
-		try {
-			String s = user.listAllTools();
-			System.out.println(s);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	public static void main(String[] args) {
-		GUI shop = new GUI();
-		JFrame frame = new JFrame("GUI");
-		shop.startMainMenu();
-		frame.setContentPane(shop.getMain());
-		frame.setSize(650, 565);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	}
 }
 

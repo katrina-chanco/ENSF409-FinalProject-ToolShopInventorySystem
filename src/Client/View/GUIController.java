@@ -7,23 +7,40 @@ import Client.Controller.Client;
 
 public class GUIController {
 	
-	private Client user;
+	protected GUI menu;
+	protected Client client;
+
 	
-	public void setUser(String host, int port) {
-		user = new Client(host, port);
+	public GUIController(GUI m, Client c) {
+		menu = m;
+		client = c;
 	}
 
 	public static void main(String[] args) {
-		GUIController shop = new GUIController();
+		Client user = new Client("localhost", 1234);
 		GUI menu = new GUI();
+		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");
-		shop.setUser("localhost", 1234);
+		
+		B1 b1 = new B1(menu, user);
+		B2 b2 = new B2(menu, user);
+		B3 b3 = new B3(menu, user);
+		B4 b4 = new B4(menu, user);
+		B5 b5 = new B5(menu, user);
+		menu.setB1(b1);
+		menu.setB2(b2);
+		menu.setB3(b3);
+		menu.setB4(b4);
+		menu.setB5(b5);
+				
 		menu.startMainMenu();
 		frame.setContentPane(menu.getMain());
 		frame.setSize(650, 565);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
+		WindowClose closeListener = new WindowClose(menu, user);
+		frame.addWindowListener(closeListener);
+		
 	}
 
 }

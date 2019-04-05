@@ -74,11 +74,12 @@ public class Server {
 
                     case "searchToolName":
                         String nameTool = obj.getString("name");
-                        JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchByName(nameTool));
-                        if(searchToolNameJSONManagerServer == null){
+                        
+                        if(shopServer.getInventory().searchByName(nameTool) == null){
                             outSocket.println(nullCheck.getJsonObject().toString());
                         }
                         else{
+                        	JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchByName(nameTool));
                             outSocket.println(searchToolNameJSONManagerServer.getJsonObject().toString());
                         }
                         break;
@@ -86,11 +87,13 @@ public class Server {
 
                     case "searchToolId":
                         int numberTool = obj.getInt("number");
-                        JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchById(numberTool));
-                        if(searchToolIdJSONManagerServer == null){
+                        
+                        if(shopServer.getInventory().searchById(numberTool) == null){
+
                             outSocket.println(nullCheck.getJsonObject().toString());
                         }
                         else{
+                        	JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchById(numberTool));
                             outSocket.println(searchToolIdJSONManagerServer.getJsonObject().toString());
                         }
                         break;

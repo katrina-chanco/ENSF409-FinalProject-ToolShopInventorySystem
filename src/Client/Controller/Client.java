@@ -40,8 +40,9 @@ public class Client {
         boolean flag = true;
             try{
                 while(flag){
-
-                        outSocket.println(jObject.getJsonObject().toString());
+//				Do we need this while loop here if at the end of it we always break the loop?
+//              Should we be reinitializing finalObj at the beginning of this method?          
+                	outSocket.println(jObject.getJsonObject().toString());
                         response = inSocket.readLine();
 
                         if(response == null){
@@ -58,7 +59,7 @@ public class Client {
             }
             catch(Exception e) {
                 e.printStackTrace();
-            } finally {
+            } //finally {
 //            	THIS NEEDS TO BE CLOSED FROM THE CLIENT CONTROLLER WHEN THE WINDOW IS CLOSED
 //                try{
 //                	inSocket.close();
@@ -66,7 +67,7 @@ public class Client {
 //                }catch (IOException e){
 //                    System.err.println("Closing error: " + e.getMessage());
 //                }
-            }
+           // }
 
 
     }
@@ -108,16 +109,16 @@ public class Client {
         //Obtain the JSONObject from Client, and parse the object using keywords into separate strings that can then be formatted to look nice in the View
 
         //PARSE START
-        JSONObject item = new JSONObject(finalObj.getJSONArray("ItemList").get(0));// Iterating through the itemList (the first "INDEX" of the itemList)
-        String itemName = item.getString("itemName");
-        String quantity = item.getString("quantity");
-        String price = item.getString("price");
-
-        JSONObject supplier = new JSONObject(item.get("supplier"));
-        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
-        String supplierId = supplier.getString("id");
-        String itemId = supplier.getString("id"); //THEY ARE BOTH THE KEY "id" so that might become a problem?
-        //PARSE END
+//        JSONObject item = new JSONObject(finalObj.getJSONArray("ItemList").get(0));// Iterating through the itemList (the first "INDEX" of the itemList)
+//        String itemName = item.getString("itemName");
+//        String quantity = item.getString("quantity");
+//        String price = item.getString("price");
+//
+//        JSONObject supplier = new JSONObject(item.get("supplier"));
+//        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
+//        String supplierId = supplier.getString("id");
+//        String itemId = supplier.getString("id"); //THEY ARE BOTH THE KEY "id" so that might become a problem?
+//        //PARSE END
 
 
         return finalObj;
@@ -173,6 +174,16 @@ public class Client {
         else{
             return finalObj;
         }
+    }
+    
+    public void close() {
+    	try {
+			inSocket.close();
+			outSocket.close();
+		} catch (IOException e) {
+			System.err.println("Unable to close sockets");
+		}
+    	
     }
 }
 
