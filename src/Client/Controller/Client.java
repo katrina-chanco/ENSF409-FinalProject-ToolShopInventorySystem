@@ -108,16 +108,16 @@ public class Client {
         //Obtain the JSONObject from Client, and parse the object using keywords into separate strings that can then be formatted to look nice in the View
 
         //PARSE START
-        JSONObject item = new JSONObject(finalObj.getJSONArray("ItemList").get(0));// Iterating through the itemList (the first "INDEX" of the itemList)
-        String itemName = item.getString("itemName");
-        String quantity = item.getString("quantity");
-        String price = item.getString("price");
-
-        JSONObject supplier = new JSONObject(item.get("supplier"));
-        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
-        String supplierId = supplier.getString("id");
-        String itemId = supplier.getString("id"); //THEY ARE BOTH THE KEY "id" so that might become a problem?
-        //PARSE END
+//        JSONObject item = new JSONObject(finalObj.getJSONArray("ItemList").get(0));// Iterating through the itemList (the first "INDEX" of the itemList)
+//        String itemName = item.getString("itemName");
+//        String quantity = item.getString("quantity");
+//        String price = item.getString("price");
+//
+//        JSONObject supplier = new JSONObject(item.get("supplier"));
+//        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
+//        String supplierId = supplier.getString("id");
+//        String itemId = supplier.getString("id"); //THEY ARE BOTH THE KEY "id" so that might become a problem?
+//        //PARSE END
 
 
         return finalObj;
