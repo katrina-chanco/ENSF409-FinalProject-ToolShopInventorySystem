@@ -6,15 +6,25 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import org.json.JSONObject;
+
 import Client.Controller.Client;
 
+/**
+ * ActionListener for the button that starts the Easter Egg
+ *
+ */
 public class B5 extends GUIController implements ActionListener{
 
+	/**
+	 * Default constructor for the B5 class, calls the constructor from the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public B5(GUI m, Client c) {
 		super(m, c);
-		// TODO Auto-generated constructor stub
 	}
-
+	
 	private JPanel mainMenu;
 	private JLabel l;
 	private JLabel dl;

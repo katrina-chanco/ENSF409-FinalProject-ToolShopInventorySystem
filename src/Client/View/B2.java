@@ -11,16 +11,24 @@ import org.json.JSONObject;
 
 import Client.Controller.Client;
 
-/*
+/**
  * Listener for the Check Quantity button
  */
 public class B2 extends GUIController implements ActionListener{
-
+	/**
+	 * Default constructor for the B2 class, calls the constructor from the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public B2(GUI m, Client c) {
 		super(m, c);
-		// TODO Auto-generated constructor stub
 	}
 
+	
+	/**
+	 * Overrides the actionPerformed method from ActionListener
+	 * Creates a panel that asks for the user to choose to search by name or ID, then calls the appropriate search method
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JPanel p = new JPanel();
@@ -35,7 +43,12 @@ public class B2 extends GUIController implements ActionListener{
 			searchID(id);
 		}
 	}
-	
+	/**
+	 * Takes a string as the name of a tool to search for and passes it to the client
+	 * The client will return a JSONObject which will then be parsed and the quantity will be displayed to the user
+	 * If the client cannot find the specified tool, a message will be displayed to the user stating that the tool was not found
+	 * @param s The name of the tool to search for as a String
+	 */
 	public void searchName(String s) {
 		JSONObject search = null;
 		try {
@@ -53,7 +66,12 @@ public class B2 extends GUIController implements ActionListener{
 	        JOptionPane.showMessageDialog(null, message);
 		}
 	}
-	
+	/**
+	 * Takes an integer as the ID of a tool to search for and passes it to the client
+	 * The client will return a JSONObject which will then be parsed and the quantity will be displayed to the user
+	 * If the client cannot find the specified tool, a message will be displayed to the user stating that the tool was not found
+	 * @param id The ID of a tool to search for as an integer
+	 */
 	public void searchID(int id) {
 		JSONObject search = null;
 		try {

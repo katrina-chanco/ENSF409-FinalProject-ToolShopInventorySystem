@@ -20,7 +20,7 @@ import Client.Controller.Client;
 
 public class GUI {
 
-	private JPanel mainMenu;
+	private JPanel mainMenu; 
 	private JPanel mainButtons;
 	private Client user;
 	private JLabel l;
@@ -51,6 +51,11 @@ public class GUI {
 	public void setB4(B4 b) {lb4 = b;}
 	public void setB5(B5 b) {lb5 = b;}
 	
+	/**
+	 * Displays the main menu for the GUI
+	 * The buttons and background colors are set here, also the layout of the main page of the GUI is set
+	 * Action listeners are set by the setters in the methods above
+	 */
 	public void startMainMenu() {
 		JLabel title = new JLabel();
 		title.setText("Shop Manager");

@@ -10,12 +10,20 @@ public class GUIController {
 	protected GUI menu;
 	protected Client client;
 
-	
+	 /**
+	 * Default constructor for the class, calls the constructor from the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public GUIController(GUI m, Client c) {
 		menu = m;
 		client = c;
 	}
 
+	/**
+	 * Main function for the Client side. Starts the client connection, and starts the GUI, then sets the actionListeners for the buttons
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Client user = new Client("localhost", 1234);
 		GUI menu = new GUI();

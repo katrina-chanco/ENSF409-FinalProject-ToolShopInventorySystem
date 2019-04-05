@@ -9,12 +9,18 @@ import Client.Controller.Client;
  * Listener for the Make Sale button
  */
 public class B3 extends GUIController implements ActionListener{
-
+	/**
+	 * Default constructor for the B3 class, calls the constructor from the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public B3(GUI m, Client c) {
 		super(m, c);
-		// TODO Auto-generated constructor stub
 	}
-
+	/**
+	 * This method is not operational yet, for testing purposes it prints a message to the console
+	 * This method will be updated for Milestone 3
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Class B3 pushed");

@@ -11,16 +11,27 @@ import org.json.JSONObject;
 
 import Client.Controller.Client;
 
-/*
- * Listener for the Search button
+/**
+ * 
+ * Action Listener for the Search button, inherits from GUIController and uses the ActionListener interface
+ *
  */
 public class B4 extends GUIController implements ActionListener{
-
+	/**
+	 * Default constructor, calls the constructor for the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public B4(GUI m, Client c) {
 		super(m, c);
 	}
-
-	@Override
+	
+	/**
+	 * Overrides the actionPerformed method from ActionListener
+	 * Displays a JOptionPane that lets the user choose to pick to search by ID or name
+	 * When the user chooses, the search method is called with the name or id specified
+	 * @Override
+	 */
 	public void actionPerformed(ActionEvent e) {
 		JPanel p = new JPanel();
 		String [] s = {"Seach Name", "Search ID"};
@@ -34,7 +45,12 @@ public class B4 extends GUIController implements ActionListener{
 			searchID(id);
 		}
 	}
-	
+	/**
+	 * Takes a String and calls the search method from the client to search for the tool
+	 * The client returns a JSON object, which is then parsed and displayed for the user
+	 * If the tool is not found, it displays a message for the user
+	 * @param s Tool Name to search for
+	 */
 	public void searchName(String s) {
 		JSONObject search = null;
 		try {
@@ -57,7 +73,12 @@ public class B4 extends GUIController implements ActionListener{
 	        JOptionPane.showMessageDialog(null, message);
 		}
 	}
-	
+	/**
+	 * Takes an integer and calls the search method from the client to search for the tool
+	 * The client returns a JSON object, which is then parsed and displayed for the user
+	 * If the tool is not found, it displays a message for the user
+	 * @param id ID of the tool to search for
+	 */
 	public void searchID(int id) {
 		JSONObject search = null;
 		try {

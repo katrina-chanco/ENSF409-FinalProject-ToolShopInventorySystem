@@ -17,13 +17,27 @@ import org.json.JSONObject;
 import Client.Controller.Client;
 
 public class B1 extends GUIController implements ActionListener{
-
+	/**
+	 * A JSONObject that will receive data from the Client and then be parsed to display the information to the user
+	 */
+	private JSONObject obj;
+	
+	
+	/**
+	 * Default constructor for the B2 class, calls the constructor from the superclass
+	 * @param m GUI object
+	 * @param c Client object
+	 */
 	public B1(GUI m, Client c) {
 		super(m, c);
 	}
 
-	private JSONObject obj;
 	
+	/**
+	 * Overrides the actionPerformed method from ActionListener
+	 * Receives a JSONObject from the client, and then parses the information
+	 * A table is created and the information from the JSONObject is added, then the table is displayed to the screen for the user
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		try {
@@ -57,6 +71,11 @@ public class B1 extends GUIController implements ActionListener{
 		
 	}
 	
+	/**
+	 * Parses an individual row of data from an array of JSONObjects, returns the data as a String array
+	 * @param i Index of the data to be parsed
+	 * @return The data from the index of the JSONArray as a String array
+	 */
 	public String[] getRow(int i) {
 		String [] s = new String[6];
 		JSONObject item = obj.getJSONArray("itemList").getJSONObject(i);
