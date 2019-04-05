@@ -13,15 +13,41 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * Controls the server end of the communication line.
+ */
 public class Server {
 
+    /**
+     * Creates the server socket
+     */
     private ServerSocket serverSocket;
+
+    /**
+     * Creates a socket
+     */
     private Socket aSocket;
+
+    /**
+     * Creates the socket that reads into the server
+     */
     private BufferedReader inSocket;
+
+    /**
+     * Creates the socket that writes out of the server
+     */
     private PrintWriter outSocket;
+
+    /**
+     * Creates the executor service for the server
+     */
     private ExecutorService pool;
 
 
+    /**
+     * Constructs the Server
+     * @param portNumber the port number for the client-server
+     */
     public Server(int portNumber) {
         try{
 
@@ -38,7 +64,10 @@ public class Server {
 
     }
 
-
+    /**
+     * Communicates with the Client
+     * @throws IOException the input output exception
+     */
     public void communicateWithClient() throws IOException{
 
         ArrayList<Item> items = new ArrayList<>();
