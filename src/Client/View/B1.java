@@ -59,15 +59,15 @@ public class B1 extends GUIController implements ActionListener{
 	
 	public String[] getRow(int i) {
 		String [] s = new String[6];
-		JSONObject item = obj.getJSONArray("itemList").getJSONObject(i);// Iterating through the itemList (the first "INDEX" of the itemList)
+		JSONObject item = obj.getJSONArray("itemList").getJSONObject(i);
 		String itemName = item.getString("itemName");
         String quantity = Integer.toString(item.getInt("quantity"));
         String price = Integer.toString(item.getInt("price"));
 
         JSONObject supplier = item.getJSONObject("supplier");
-        String companyName = supplier.getString("companyName"); // Accesses the information within the supplier list
+        String companyName = supplier.getString("companyName");
         String supplierId = Integer.toString(supplier.getInt("id"));
-        String itemId = Integer.toString(item.getInt("id")); //THEY ARE BOTH THE KEY "id" so that might become a problem?
+        String itemId = Integer.toString(item.getInt("id")); 
         s[0] = itemName;
         s[1] = quantity;
         s[2] = price;

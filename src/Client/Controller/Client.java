@@ -174,6 +174,17 @@ public class Client {
             return finalObj;
         }
     }
+    
+    public void close() {
+    	try {
+			inSocket.close();
+			outSocket.close();
+			System.out.println("closing");
+		} catch (IOException e) {
+			System.err.println("Unable to close sockets");
+		}
+    	
+    }
 }
 
 

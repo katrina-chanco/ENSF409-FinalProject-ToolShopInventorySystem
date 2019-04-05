@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 
 import Client.Controller.Client;
 
+/*
+ * Listener for the Make Sale button
+ */
 public class B3 extends GUIController implements ActionListener{
 
 	public B3(GUI m, Client c) {
