@@ -31,6 +31,7 @@ public class GUI {
 	private JButton b4;
 	private JButton b5;
 	private B1 lb1;
+	private B5 lb5;
 	
 	public GUI() {
 		user = new Client("localhost", 1234);
@@ -45,6 +46,7 @@ public class GUI {
 	public JButton getB4() {return b4;}
 	public JButton getB5() {return b5;}
 	public void setB1(B1 b) {lb1 = b;}
+	public void setB5(B5 b) {lb5 = b;}
 	
 	public void startMainMenu() {
 		JLabel title = new JLabel();
@@ -93,7 +95,7 @@ public class GUI {
 //		b2.addActionListener(new B2());
 //		b3.addActionListener(new B3());
 //		b4.addActionListener(new B4());
-//		b5.addActionListener(new B5());
+		b5.addActionListener(lb5);
 		
 //		b2.addActionListener(new ActionListener() {
 //			

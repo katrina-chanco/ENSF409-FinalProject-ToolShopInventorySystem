@@ -23,7 +23,9 @@ public class GUIController {
 		
 //		shop.setMenu(menu, user);
 		B1 b1 = new B1(menu, user);
+		B5 b5 = new B5(menu, user);
 		menu.setB1(b1);
+		menu.setB5(b5);
 		JFrame frame = new JFrame("GUI");		
 		menu.startMainMenu();
 		frame.setContentPane(menu.getMain());

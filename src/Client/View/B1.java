@@ -29,21 +29,18 @@ public class B1 extends GUIController implements ActionListener{
 		try {
 			obj = new JSONObject();
 			obj = client.listAllTools();
-			System.out.println(obj.toString());
 		} catch (IOException e1) {
 			System.out.println("Unable to print tools");
 		}
-		
+		int length = 0;
+		length = obj.getJSONArray("itemList").length();
 		String [] columnNames = {"Item Name", "Quantity", "Price", "Supplier", "Supplier ID", "Item ID"};
-		String [][] data = new String[100][6];
-		
-		int i = 0;
+		String [][] data = new String[length][6];
 		String [] row = new String[6];
-		row = getRow(0);
-		data[0] = row;
-//		while(!(row = getRow(i)).equals(null)) {
-//			data[i] = row;
-//		}
+		for(int i = 0; i < length; i++) {
+			row = getRow(i);
+			data[i] = row;
+		}
 		
 		JTable table = new JTable(data, columnNames);
 		JScrollPane sp = new JScrollPane(table);
@@ -52,7 +49,7 @@ public class B1 extends GUIController implements ActionListener{
 		JFrame frame = new JFrame();
 		frame.setTitle("Inventory List");
 		frame.add(sp);
-		frame.setMinimumSize(new Dimension(500, 500));
+		frame.setMinimumSize(new Dimension(700, 600));
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		
@@ -62,8 +59,7 @@ public class B1 extends GUIController implements ActionListener{
 	
 	public String[] getRow(int i) {
 		String [] s = new String[6];
-		JSONObject item = obj.getJSONArray("itemList").getJSONObject(0);// Iterating through the itemList (the first "INDEX" of the itemList)
-		System.out.println(item.toString());
+		JSONObject item = obj.getJSONArray("itemList").getJSONObject(i);// Iterating through the itemList (the first "INDEX" of the itemList)
 		String itemName = item.getString("itemName");
         String quantity = Integer.toString(item.getInt("quantity"));
         String price = Integer.toString(item.getInt("price"));
