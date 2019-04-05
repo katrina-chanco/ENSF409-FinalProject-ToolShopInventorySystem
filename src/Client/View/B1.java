@@ -30,7 +30,7 @@ public class B1 extends GUIController implements ActionListener{
 			obj = new JSONObject();
 			obj = client.listAllTools();
 		} catch (IOException e1) {
-			System.out.println("Unable to print tools");
+			System.err.println("Unable to print tools");
 		}
 		int length = 0;
 		length = obj.getJSONArray("itemList").length();

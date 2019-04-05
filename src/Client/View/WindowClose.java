@@ -23,8 +23,8 @@ public class WindowClose extends GUIController implements WindowListener {
 
 	/*
 	 * Method to close the sockets in the client class when the GUI window is closed by the user
-	*@Override
 	*/
+	@Override
 	public void windowClosing(WindowEvent e) {
 		client.close();
 		
