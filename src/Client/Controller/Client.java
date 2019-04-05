@@ -40,8 +40,9 @@ public class Client {
         boolean flag = true;
             try{
                 while(flag){
-
-                        outSocket.println(jObject.getJsonObject().toString());
+//				Do we need this while loop here if at the end of it we always break the loop?
+//              Should we be reinitializing finalObj at the beginning of this method?          
+                	outSocket.println(jObject.getJsonObject().toString());
                         response = inSocket.readLine();
 
                         if(response == null){
@@ -58,7 +59,7 @@ public class Client {
             }
             catch(Exception e) {
                 e.printStackTrace();
-            } finally {
+            } //finally {
 //            	THIS NEEDS TO BE CLOSED FROM THE CLIENT CONTROLLER WHEN THE WINDOW IS CLOSED
 //                try{
 //                	inSocket.close();
@@ -66,7 +67,7 @@ public class Client {
 //                }catch (IOException e){
 //                    System.err.println("Closing error: " + e.getMessage());
 //                }
-            }
+           // }
 
 
     }
@@ -179,7 +180,6 @@ public class Client {
     	try {
 			inSocket.close();
 			outSocket.close();
-			System.out.println("closing");
 		} catch (IOException e) {
 			System.err.println("Unable to close sockets");
 		}

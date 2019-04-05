@@ -65,7 +65,7 @@ public class B4 extends GUIController implements ActionListener{
 		} catch (IOException e) {
 			System.err.println("Unable to search");
 		}
-		if(search == null) {
+		if(search.getString("nullType").equals(null)) {
 			JOptionPane.showMessageDialog(null, "No item found");
 		}else {
 			String itemName = search.getString("itemName");
