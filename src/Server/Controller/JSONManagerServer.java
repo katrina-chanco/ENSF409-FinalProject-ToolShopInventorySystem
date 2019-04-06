@@ -13,19 +13,26 @@ public class JSONManagerServer<Type> {
 
 	/**
 	 * Constructor for the manager.
-	 * @param item
+	 * @param item the type for the JSON Manager Server object
 	 */
 	public JSONManagerServer(Type item) {
 		jsonObject = new JSONObject(item);
 	}
 
 
+	/**
+	 * Constructs the JSONManagerServer for the null return
+	 */
 	public JSONManagerServer(){
 		jsonObject = new JSONObject();
 		jsonObject.isNull("nullType");
 	}
 
 
+	/**
+	 * Constructs the JSONManagerServer for the quantity change responses
+	 * @param flag the reference on which message to send
+	 */
 	public JSONManagerServer(String flag){
 		jsonObject = new JSONObject();
 
@@ -36,7 +43,6 @@ public class JSONManagerServer<Type> {
 			jsonObject.put("message", "Sale NOT Successful.");
 		}
 	}
-
 
 
 	/**

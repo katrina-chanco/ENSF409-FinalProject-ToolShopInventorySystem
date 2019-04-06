@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Controls the server end of the communication line.
+ * Provides the Server side for the ToolShop
  */
 public class Server {
 
@@ -39,14 +39,14 @@ public class Server {
     private PrintWriter outSocket;
 
     /**
-     * Creates the executor service for the server
+     * Creates an Executor object that utilizes thread pools
      */
     private ExecutorService pool;
 
 
     /**
      * Constructs the Server
-     * @param portNumber the port number for the client-server
+     * @param portNumber the port number for the client-server application
      */
     public Server(int portNumber) {
         try{
@@ -66,7 +66,7 @@ public class Server {
 
     /**
      * Communicates with the Client
-     * @throws IOException the input output exception
+     * @throws IOException (input/output exception)
      */
     public void communicateWithClient() throws IOException{
 
@@ -172,6 +172,12 @@ public class Server {
     }
 
 
+    /**
+     *  Provides the means to test the functionality of the server
+     *
+     * @param args the command line arguments, not used in this program
+     * @throws IOException (input/output exception)
+     */
     public static void main(String[] args) throws IOException{
 
         Server server = new Server(1234);
