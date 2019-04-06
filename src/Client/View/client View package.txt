@@ -1,3 +1,0 @@
-so git will find the folder :)
-test add -nathan
-test add 2 for eclipse configuration
