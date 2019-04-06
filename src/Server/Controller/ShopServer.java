@@ -11,14 +11,42 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
+/**
+ * Provides the Shop on the Server side of the application.
+ */
 public class ShopServer implements Constants {
 
+    /**
+     * Creates the inventory of the shop
+     */
     private Inventory inventory;
+
+    /**
+     * Creates the list of suppliers for the shop
+     */
     private ArrayList<Supplier> suppliers;
+
+    /**
+     * Creates the order for the shop
+     */
     private Order order;
 
+    /**
+     * Getter for inventory
+     * @return the inventory
+     */
+    public Inventory getInventory() {
+        return inventory;
+    }
 
+
+    /**
+     * Constructs the shop on the server side
+     *
+     * @param inventory the inventory
+     * @param suppliers the suppliers
+     * @param order the order
+     */
     public ShopServer(Inventory inventory, ArrayList<Supplier> suppliers, Order order) {
         this.inventory = inventory;
         this.suppliers = suppliers;
@@ -26,6 +54,13 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Read the file
+     * Split into an array separated ';' delimiter
+     *
+     * @param fileName name of the file
+     * @return ArrayList of string array of file separated by ';' and '\n'
+     */
     public ArrayList<String[]> readFile(String fileName) {
         String line = null;
         String delimiter = ";";
@@ -50,6 +85,10 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Parse the data from text file
+     * Add to the list of suppliers
+     */
     public void readSupplierFile() {
         int id;
         String companyName;
@@ -67,6 +106,10 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Parse the data from text file
+     * Populate the inventory
+     */
     public void readItemFile() {
         int id;
         String name;
@@ -88,12 +131,11 @@ public class ShopServer implements Constants {
     }
 
 
-
-    public Inventory getInventory() {
-        return inventory;
-    }
-
-
+    /**
+     * Add order if supplier can fulfill the request
+     * @param item  item for the order
+     * @param quantity quantity for the order
+     */
     public void addOrder(Item item, int quantity) {
         if(item.getSupplier().addOrder(item, quantity)) {
             order.addOrder(item, quantity);
@@ -101,6 +143,12 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Search for supplier by the ID
+     *
+     * @param id id used to search with
+     * @return Return the supplier if found, otherwise return null
+     */
     public Supplier searchSupplierById (int id) {
         for (Supplier s:suppliers) {
             if(s.getId() == id){
@@ -111,6 +159,12 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Check the quantity of the item
+     * If needed, fill an order
+     * @param item item requested to check quantity of
+     * @return quantity of requested item
+     */
     public int checkQuantity(Item item) {
         int quantity = inventory.checkQuantity(item);
         if(quantity<Constants.orderMinThreshhold) {
@@ -122,6 +176,12 @@ public class ShopServer implements Constants {
     }
 
 
+    /**
+     * Add sale for an item
+     * @param item item to sell
+     * @param quantity quantity of item requested
+     * @return true if item got sold, false if quantity was not enough
+     */
     public boolean addSale(Item item, int quantity) {
         return item.addSale(quantity);
     }

@@ -7,12 +7,29 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import org.json.JSONObject;
 
-
+/**
+ * Provides the Client side for the ToolShop
+ */
 public class Client {
 
+    /**
+     * Creates a socket
+     */
     private Socket aSocket;
+
+    /**
+     * Creates the socket that reads into the server
+     */
     private BufferedReader inSocket;
+
+    /**
+     * Creates the socket that writes out of the server
+     */
     private PrintWriter outSocket;
+
+    /**
+     * Creates the JSON Object that gets called by the GUI
+     */
     private JSONObject finalObj;
 
 
