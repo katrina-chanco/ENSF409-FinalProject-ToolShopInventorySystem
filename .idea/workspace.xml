@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Controller/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Controller/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/Server.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +12,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Controller/CommunicateShowCase.java">
+        <entry file="file://$PROJECT_DIR$/src/Server/Controller/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            <state relative-caret-position="-224">
+              <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Client/Controller/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1524">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,36 +36,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Client/Controller/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="105" column="24" lean-forward="true" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Server/Controller/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/Controller/ShopServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="4" selection-start-column="20" selection-end-line="13" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2836#2837#0" expanded="true" />
+                <element signature="e#2868#2869#0" expanded="true" />
+                <element signature="e#4001#4002#0" expanded="true" />
+                <element signature="e#4046#4047#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,22 +53,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Client/Controller/JSONManagerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+            <state relative-caret-position="680">
+              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../ENSF409/lab3/src/FrontEnd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1922#1923#0" expanded="true" />
+                <element signature="e#1957#1958#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,20 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server/Controller/JSONManagerServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/legacy/FrontEnd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2635">
-              <caret line="155" column="24" selection-start-line="155" selection-start-column="24" selection-end-line="155" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="663">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
             </state>
           </provider>
         </entry>
@@ -155,7 +118,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="735" />
@@ -164,7 +127,52 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Client" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ENSF 409 Final Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ENSF409-FinalProject-ToolShopInventorySystem" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -262,11 +270,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52705000" />
+    <option name="totallyTimeSpent" value="52709000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.5257186" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -379,20 +386,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Controller/ShopServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="4" selection-start-column="20" selection-end-line="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2836#2837#0" expanded="true" />
+            <element signature="e#2868#2869#0" expanded="true" />
+            <element signature="e#4001#4002#0" expanded="true" />
+            <element signature="e#4046#4047#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Controller/JSONManagerClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="680">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1922#1923#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -409,8 +421,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Controller/JSONManagerServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="663">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>
@@ -426,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server/Controller/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="-224">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -436,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/Controller/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="105" column="24" lean-forward="true" selection-start-line="105" selection-start-column="24" selection-end-line="105" selection-end-column="24" />
+        <state relative-caret-position="-1524">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
