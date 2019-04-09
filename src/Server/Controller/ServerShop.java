@@ -10,7 +10,7 @@ import Server.Model.*;
 /**
  * Main implementing class for the shop.
  */
-public class ServerShop implements Constants {
+public class ServerShop implements Constants, Runnable {
 	/**
 	 * Inventory of the shop.
 	 */
@@ -179,4 +179,15 @@ public class ServerShop implements Constants {
 	public Order getOrders() {
 		return order;
 	}
+
+	/**
+	 * Runs the program, method implemented from the interface Runnable
+	 *
+	 * @Override
+	 */
+	public void run(){
+		
+
+	}
+
 }
