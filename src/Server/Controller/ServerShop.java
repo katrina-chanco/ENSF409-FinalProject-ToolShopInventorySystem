@@ -10,7 +10,7 @@ import Server.Model.*;
 /**
  * Main implementing class for the shop.
  */
-public class ServerShop implements Constants, Runnable {
+public class ServerShop implements Server.Controller.Constants, Runnable {
 	/**
 	 * Inventory of the shop.
 	 */
@@ -186,7 +186,7 @@ public class ServerShop implements Constants, Runnable {
 	 * @Override
 	 */
 	public void run(){
-		
+
 
 	}
 
