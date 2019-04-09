@@ -1,11 +1,12 @@
+package Client.View;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Client.View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import Client.Controller.Client;
 
@@ -28,7 +29,13 @@ public class B3 extends GUIController implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.out.println("Class B3 pushed");
-		
+		try {
+			client.decreaseQuantity(1000, 5);
+		} catch(IOException e3){
+
+		}
+
+
 	}
 
 }

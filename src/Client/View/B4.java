@@ -1,8 +1,8 @@
+package Client.View;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Client.View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,8 +45,14 @@ public class B4 extends GUIController implements ActionListener{
 			searchName(nameSearch);
 		}else if(i == 1) {
 			String idSearch = JOptionPane.showInputDialog("Please enter the ID of a tool to search for");
-			int id = Integer.parseInt(idSearch);
-			searchID(id);
+
+			try{
+				int id = Integer.parseInt(idSearch);
+				searchID(id);
+			}catch(NumberFormatException n){
+				JOptionPane.showMessageDialog(null, "Please enter a number");
+			}
+
 		}
 	}
 	/**
@@ -90,7 +96,7 @@ public class B4 extends GUIController implements ActionListener{
 		} catch (IOException e) {
 			System.err.println("Unable to search");
 		}
-		if(search.getString("nullType").equals(null)) {
+		if(search == null) {
 			JOptionPane.showMessageDialog(null, "No item found");
 		}else {
 			String itemName = search.getString("itemName");
