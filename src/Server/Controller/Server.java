@@ -14,7 +14,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -75,16 +77,19 @@ public class Server {
      */
     public void communicateWithClient() throws IOException{
 
+
+        Database database = new Database();
+        try {
+            database.setConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         ArrayList<Item> items = new ArrayList<>();
-        Inventory inventory = new Inventory(items);
         ArrayList<Supplier> suppliers = new ArrayList<>();
-        ArrayList<OrderLine> orderLines = new ArrayList<>();
-        Order order = new Order(orderLines);
-        ShopServer shopServer = new ShopServer(inventory,suppliers,order);
-        shopServer.readSupplierFile();
-        shopServer.readItemFile();
-
-
+        LinkedList<OrderLine> orderLines = new LinkedList<>();
+        Order order = new Order(orderLines,database);
+        Inventory inventory = new Inventory(database);
+        ServerShop shopServer = new ServerShop(inventory,order,database);
         String input = null;
         boolean flag = true;
         try{
@@ -166,9 +171,12 @@ public class Server {
                 outSocket.close();
                 serverSocket.close();
                 pool.shutdown();
+                database.closeConnection();
             }catch (IOException e){
                 System.err.println("Closing error: " + e.getMessage());
 
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }
