@@ -4,12 +4,17 @@ package Server.Model;
 // Evan Krul - 30043180
 
 import Server.Controller.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  * Item class for the shop.
  */
 public class Item implements Constants{
 	/**
-	 * Supplier of item.
+	 * Supplier ID of item.
 	 */
 	private Supplier supplier;
 	/**
@@ -42,7 +47,6 @@ public class Item implements Constants{
 		this.quantity = quantity;
 		this.price = price;
 	}
-
 
 	/**
 	 * Getter for price.
@@ -96,8 +100,18 @@ public class Item implements Constants{
 	 * Quantity setter.
 	 * @param quantity Quantity of item.
 	 */
-	public void setQuantity(int quantity) {
+	public void setQuantity(int quantity, Database database) {
 		this.quantity = quantity;
+		try {
+			Connection connection = database.getConnection();
+			String sqlString = "UPDATE `toolShop`.`items` SET `quantity`=? WHERE  `itemId`=?";
+			PreparedStatement preparedStatement = connection.prepareStatement(sqlString);
+			preparedStatement.setInt(1,this.quantity);
+			preparedStatement.setInt(2,id);
+			preparedStatement.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -110,14 +124,14 @@ public class Item implements Constants{
 
 	/**
 	 * Add a sale if quantity is available.
-	 * @param saleQuantitiy Quantity to sell.
+	 * @param saleQuantity Quantity to sell.
 	 * @return true if sale was tendered. False if quantity is unavailable.
 	 */
-	public boolean addSale(int saleQuantitiy) {
-		if(saleQuantitiy > quantity) {
+	public boolean addSale(int saleQuantity, Database database) {
+		if(saleQuantity > quantity) {
 			return false;
 		} else {
-			quantity -=saleQuantitiy;
+			setQuantity(quantity-saleQuantity, database);
 			return true;
 		}
 	}
