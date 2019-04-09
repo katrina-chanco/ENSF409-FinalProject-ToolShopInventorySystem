@@ -185,7 +185,7 @@ public class Server {
      */
     public static void main(String[] args) throws IOException{
 
-        Server server = new Server(1234);
+        Server server = new Server(8099);
         server.communicateWithClient();
     }
 }
