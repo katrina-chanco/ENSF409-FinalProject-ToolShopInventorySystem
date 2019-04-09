@@ -1,16 +1,14 @@
 package Server.Controller;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
+import java.net.Socket;
 import Server.Model.*;
+import org.json.JSONObject;
 
 /**
  * Main implementing class for the shop.
  */
-public class ServerShop implements Constants {
+public class ServerShop implements Constants,Runnable {
 	/**
 	 * Inventory of the shop.
 	 */
@@ -27,16 +25,42 @@ public class ServerShop implements Constants {
 	 * Database for the shop.
 	 */
 	Database database;
+
+	/**
+	 * Creates a socket
+	 */
+	private Socket aSocket;
+
+	/**
+	 * Creates the socket that reads into the server
+	 */
+	private BufferedReader inSocket;
+
+	/**
+	 * Creates the socket that writes out of the server
+	 */
+	private PrintWriter outSocket;
+
+
 	/**
 	 * Construct a new shop.
 	 * @param inventory Inventory for the shop.
 	 * @param order Order for the shop.
 	 */
-	public ServerShop(Inventory inventory, Order order,Database database) {
+	public ServerShop(Inventory inventory, Order order,Database database, Socket socket) {
 		this.inventory = inventory;
 		this.suppliers = new Suppliers(database);
 		this.order = order;
 		this.database = database;
+		this.aSocket = socket;
+
+		try {
+			inSocket = new BufferedReader(new InputStreamReader(aSocket.getInputStream()));
+			outSocket = new PrintWriter((aSocket.getOutputStream()), true);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
@@ -178,5 +202,93 @@ public class ServerShop implements Constants {
 	 */
 	public Order getOrders() {
 		return order;
+	}
+
+	/**
+	 * When an object implementing interface <code>Runnable</code> is used
+	 * to create a thread, starting the thread causes the object's
+	 * <code>run</code> method to be called in that separately executing
+	 * thread.
+	 * <p>
+	 * The general contract of the method <code>run</code> is that it may
+	 * take any action whatsoever.
+	 *
+	 * @see Thread#run()
+	 */
+	@Override
+	public void run() {
+		try {
+			System.out.println("New client connected");
+			String input = null;
+			boolean flag = true;
+			while (flag) {
+				input = inSocket.readLine();
+				JSONObject obj = new JSONObject(input);
+				String action = obj.getString("command");
+
+				switch (action) {
+					case "listAllTools":
+						JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(this.getInventory(), "success");
+						outSocket.println(inventoryJSONManagerServer.getJsonObject().toString());
+						break;
+
+					case "QUIT":
+						flag = false;
+						break;
+
+
+					case "searchToolName":
+						String nameTool = obj.getString("name");
+						Item itemName = this.getInventory().searchByName(nameTool);
+
+						if (itemName == null) {
+							JSONManagerServer<Item> nullCheckName = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckName.getJsonObject().toString());
+						} else {
+							JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(itemName, "success");
+							outSocket.println(searchToolNameJSONManagerServer.getJsonObject().toString());
+						}
+						break;
+
+					case "searchToolId":
+						int numberTool = obj.getInt("number");
+						Item itemId = this.getInventory().searchById(numberTool);
+
+						if (itemId == null) {
+							JSONManagerServer<Item> nullCheckId = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckId.getJsonObject().toString());
+						} else {
+							JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(itemId, "success");
+							outSocket.println(searchToolIdJSONManagerServer.getJsonObject().toString());
+						}
+						break;
+
+
+					case "decreaseQuantity":
+						int numberDecrease = obj.getInt("number");
+						int amountDecrease = obj.getInt("amount");
+
+						Item workingItem = this.getInventory().searchById(numberDecrease);
+						Boolean saleComplete = this.addSale(workingItem, amountDecrease);
+
+						if (saleComplete == true) {
+							JSONManagerServer<Boolean> decreaseQuantityJSONManagerServer = new JSONManagerServer<>("success");
+							outSocket.println(decreaseQuantityJSONManagerServer.getJsonObject().toString());
+						} else {
+							JSONManagerServer<Boolean> nullCheckQuantity = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckQuantity.getJsonObject().toString());
+						}
+						break;
+
+					default:
+						break;
+
+				}
+
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }

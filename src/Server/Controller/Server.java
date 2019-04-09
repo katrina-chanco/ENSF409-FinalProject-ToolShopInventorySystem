@@ -61,9 +61,6 @@ public class Server {
             serverSocket = new ServerSocket(portNumber);
             pool = Executors.newCachedThreadPool();
             System.out.println("Server is now running...");
-            aSocket = serverSocket.accept();
-            inSocket = new BufferedReader(new InputStreamReader(aSocket.getInputStream()));
-            outSocket = new PrintWriter(aSocket.getOutputStream(), true);
 
         }catch(IOException e){
             e.printStackTrace();
@@ -76,92 +73,27 @@ public class Server {
      * @throws IOException (input/output exception)
      */
     public void communicateWithClient() throws IOException{
-
-
         Database database = new Database();
-        try {
-            database.setConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        ArrayList<Item> items = new ArrayList<>();
-        ArrayList<Supplier> suppliers = new ArrayList<>();
-        LinkedList<OrderLine> orderLines = new LinkedList<>();
-        Order order = new Order(orderLines,database);
-        Inventory inventory = new Inventory(database);
-        ServerShop shopServer = new ServerShop(inventory,order,database);
-        String input = null;
-        boolean flag = true;
         try{
-            while(flag) {
+            while (true) {
+                aSocket = serverSocket.accept();
+                inSocket = new BufferedReader(new InputStreamReader(aSocket.getInputStream()));
+                outSocket = new PrintWriter(aSocket.getOutputStream(), true);
 
-                input = inSocket.readLine();
-                JSONObject obj = new JSONObject(input);
-                String action = obj.getString("command");
-
-                switch (action) {
-                    case "listAllTools":
-                        JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory(), "success");
-                        outSocket.println(inventoryJSONManagerServer.getJsonObject().toString());
-                        break;
-
-                    case "QUIT":
-                        flag = false;
-                        break;
-
-
-                    case "searchToolName":
-                        String nameTool = obj.getString("name");
-                        Item itemName = shopServer.getInventory().searchByName(nameTool);
-
-                        if (itemName == null) {
-                            JSONManagerServer<Item> nullCheckName = new JSONManagerServer<>("failure");
-                            outSocket.println(nullCheckName.getJsonObject().toString());
-                        } else {
-                            JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(itemName, "success");
-                            outSocket.println(searchToolNameJSONManagerServer.getJsonObject().toString());
-                        }
-                        break;
-
-                    case "searchToolId":
-                        int numberTool = obj.getInt("number");
-                        Item itemId = shopServer.getInventory().searchById(numberTool);
-
-                        if (itemId == null) {
-                            JSONManagerServer<Item> nullCheckId = new JSONManagerServer<>("failure");
-                            outSocket.println(nullCheckId.getJsonObject().toString());
-                        } else {
-                            JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(itemId, "success");
-                            outSocket.println(searchToolIdJSONManagerServer.getJsonObject().toString());
-                        }
-                        break;
-
-
-                    case "decreaseQuantity":
-                        int numberDecrease = obj.getInt("number");
-                        int amountDecrease = obj.getInt("amount");
-
-                        Item workingItem = shopServer.getInventory().searchById(numberDecrease);
-                        Boolean saleComplete = shopServer.addSale(workingItem, amountDecrease);
-
-                        if(saleComplete == true){
-                            JSONManagerServer<Boolean> decreaseQuantityJSONManagerServer = new JSONManagerServer<>("success");
-                            outSocket.println(decreaseQuantityJSONManagerServer.getJsonObject().toString());
-                        }
-                        else {
-                            JSONManagerServer<Boolean> nullCheckQuantity = new JSONManagerServer<>("failure");
-                            outSocket.println(nullCheckQuantity.getJsonObject().toString());
-                        }
-                        break;
-
-                    default:
-                        break;
-
+                try {
+                    database.setConnection();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
+                ArrayList<Item> items = new ArrayList<>();
+                ArrayList<Supplier> suppliers = new ArrayList<>();
+                LinkedList<OrderLine> orderLines = new LinkedList<>();
+                Order order = new Order(orderLines, database);
+                Inventory inventory = new Inventory(database);
+                ServerShop shopServer = new ServerShop(inventory, order, database,aSocket);
 
+                pool.execute(shopServer);
             }
-        }catch(NullPointerException e){
-            System.out.println("Server lost connection to client...");
         }catch(IOException e){
             System.out.println(e.getMessage());
         }finally{
