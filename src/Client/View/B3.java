@@ -1,8 +1,16 @@
 package Client.View;
+<<<<<<< HEAD
+=======
+
+>>>>>>> bdef2a6919cf7641c4a9150e7fdfdd87c8fd0e0f
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bdef2a6919cf7641c4a9150e7fdfdd87c8fd0e0f
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

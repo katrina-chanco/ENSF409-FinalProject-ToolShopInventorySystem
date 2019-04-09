@@ -1,8 +1,8 @@
+package Server.Model;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Server.Model;
 
 import java.io.File;
 import java.io.FileOutputStream;

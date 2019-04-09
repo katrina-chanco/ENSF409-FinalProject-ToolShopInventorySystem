@@ -1,4 +1,9 @@
 package Client.View;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> bdef2a6919cf7641c4a9150e7fdfdd87c8fd0e0f
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
@@ -29,7 +34,7 @@ public class GUIController {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LoadingWindow w = new LoadingWindow();
+//		LoadingWindow w = new LoadingWindow();
 		Client user = new Client("localhost", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
