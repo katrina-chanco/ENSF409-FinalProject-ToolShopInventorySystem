@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/JSONManagerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/JSONManagerClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/B4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/WindowClose.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/WindowClose.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/JSONManagerServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/JSONManagerServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/ShopServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Order.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Order.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/OrderLine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/OrderLine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Supplier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Model/Supplier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/ShopServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/ShopServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Model/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Model/DatabaseTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -301,7 +280,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554840126071" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554840792179" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -439,7 +418,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46601000" />
+    <option name="totallyTimeSpent" value="47671000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1479" height="878" extended-state="6" />
