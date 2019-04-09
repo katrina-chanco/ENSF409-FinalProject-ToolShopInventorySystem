@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ENSF409-FinalProject-ToolShopInventorySystem:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ENSF409_FinalProject_ToolShopInventorySystem_jar</output-path>
+    <root id="archive" name="ENSF409-FinalProject-ToolShopInventorySystem.jar">
+      <element id="module-output" name="ENSF409-FinalProject-ToolShopInventorySystem" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/json.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/json.jar" />
+    </root>
+  </artifact>
+</component>
