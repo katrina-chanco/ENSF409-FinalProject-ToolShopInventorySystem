@@ -23,4 +23,21 @@ public interface Constants {
 	 * File that contains suppliers.
 	 */
 	String supplierFileName = "suppliers.txt";
+	/**
+	 * Address of database server
+	 */
+	String databaseAddress = "35.224.21.116:3306";
+	/**
+	 * DatabaseManager name
+	 */
+	String databaseName = "toolShop";
+	/**
+	 * DatabaseManager username
+	 */
+	String databaseUserName = "user";
+	/**
+	 * DatabaseManager password
+	 * (yes I know this is insecure but shhh)
+	 */
+	String databasePassword = "password";
 }

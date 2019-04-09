@@ -1,5 +1,7 @@
 package Server.Model;
 
+import Server.Controller.Database;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -11,7 +13,7 @@ public class OrderLine {
 	/**
 	 * Item for orderLine.
 	 */
-	private Item item;
+	private int itemId;
 	/**
 	 * Id of orderLine.
 	 */
@@ -36,37 +38,38 @@ public class OrderLine {
 	/**
 	 * Constructs the orderLine.
 	 * Creates a random 5 digit order ID and sets the date.
-	 * @param item Item for orderLine.
+	 * @param itemId Item for orderLine.
 	 * @param quantity Quantity for orderLine.
 	 */
-	public OrderLine(Item item, int quantity) {
+	public OrderLine(int itemId, int quantity, LocalDate dateOrdered) {
 		orderId = new Random().nextInt(99999)+10000;
 		//DateFormat dateFormat = new SimpleDateFormat("MM dd, YYYY");
-		dateOrdered = LocalDate.now();
+		this.dateOrdered = dateOrdered;
 		quantityOrdered = quantity;
 		//orderDate = dateFormat.format(date);
-		this.item = item;
+		this.itemId = itemId;
+
 	}
 
-	/**
-	 * Generate orderLine header.
-	 * @return String of header.
-	 */
-	public String getHeader() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, YYYY");
-		return "*********************************************************************************\n" +
-				"Order ID:              "+orderId+"\n" +
-				"Date Ordered:          "+formatter.format(dateOrdered)+"\n\n";
-	}
-
-	/**
-	 * Generate orderLine body.
-	 * @return String of body.
-	 */
-	public String getBody() {
-		return "Item Description:      "+item.getItemName()+"\n" +
-				"Amount Ordered:        "+quantityOrdered+"\n" +
-				"Supplier:              "+item.getSupplier().getCompanyName()+"\n\n";
-	}
+//	/**
+//	 * Generate orderLine header.
+//	 * @return String of header.
+//	 */
+//	public String getHeader() {
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, YYYY");
+//		return "*********************************************************************************\n" +
+//				"Order ID:              "+orderId+"\n" +
+//				"Date Ordered:          "+formatter.format(dateOrdered)+"\n\n";
+//	}
+//
+//	/**
+//	 * Generate orderLine body.
+//	 * @return String of body.
+//	 */
+//	public String getBody() {
+//		return "Item Description:      "+item.getItemName()+"\n" +
+//				"Amount Ordered:        "+quantityOrdered+"\n" +
+//				"Supplier:              "+item.getSupplier().getCompanyName()+"\n\n";
+//	}
 
 }
