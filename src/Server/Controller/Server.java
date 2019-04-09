@@ -1,9 +1,9 @@
+package Server.Controller;
 
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Server.Controller;
 
 import Server.Model.*;
 import org.json.JSONObject;
@@ -84,8 +84,6 @@ public class Server {
         shopServer.readSupplierFile();
         shopServer.readItemFile();
 
-        
-        JSONManagerServer nullCheck = new JSONManagerServer();
 
         String input = null;
         boolean flag = true;
@@ -98,7 +96,7 @@ public class Server {
 
                 switch (action) {
                     case "listAllTools":
-                        JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory());
+                        JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory(), "success");
                         outSocket.println(inventoryJSONManagerServer.getJsonObject().toString());
                         break;
 
@@ -106,49 +104,48 @@ public class Server {
                         flag = false;
                         break;
 
+
                     case "searchToolName":
                         String nameTool = obj.getString("name");
-                        
-                        if(shopServer.getInventory().searchByName(nameTool) == null){
-                            outSocket.println(nullCheck.getJsonObject().toString());
-                        }
-                        else{
-                        	JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchByName(nameTool));
+                        Item itemName = shopServer.getInventory().searchByName(nameTool);
+
+                        if (itemName == null) {
+                            JSONManagerServer<Item> nullCheckName = new JSONManagerServer<>("failure");
+                            outSocket.println(nullCheckName.getJsonObject().toString());
+                        } else {
+                            JSONManagerServer<Item> searchToolNameJSONManagerServer = new JSONManagerServer<>(itemName, "success");
                             outSocket.println(searchToolNameJSONManagerServer.getJsonObject().toString());
                         }
                         break;
 
-
                     case "searchToolId":
                         int numberTool = obj.getInt("number");
-                        
-                        if(shopServer.getInventory().searchById(numberTool) == null){
+                        Item itemId = shopServer.getInventory().searchById(numberTool);
 
-                            outSocket.println(nullCheck.getJsonObject().toString());
-                        }
-                        else{
-                        	JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(shopServer.getInventory().searchById(numberTool));
+                        if (itemId == null) {
+                            JSONManagerServer<Item> nullCheckId = new JSONManagerServer<>("failure");
+                            outSocket.println(nullCheckId.getJsonObject().toString());
+                        } else {
+                            JSONManagerServer<Item> searchToolIdJSONManagerServer = new JSONManagerServer<>(itemId, "success");
                             outSocket.println(searchToolIdJSONManagerServer.getJsonObject().toString());
                         }
                         break;
 
 
-
                     case "decreaseQuantity":
                         int numberDecrease = obj.getInt("number");
-                        Item workingItem = shopServer.getInventory().searchById(numberDecrease);
                         int amountDecrease = obj.getInt("amount");
 
-                        if((shopServer.addSale(workingItem, amountDecrease)) == true){
-                            JSONManagerServer messageDecrease = new JSONManagerServer("success");
-                            outSocket.println(messageDecrease.getJsonObject().toString());
+                        Item workingItem = shopServer.getInventory().searchById(numberDecrease);
+                        Boolean saleComplete = shopServer.addSale(workingItem, amountDecrease);
+
+                        if(saleComplete == true){
+                            JSONManagerServer<Boolean> decreaseQuantityJSONManagerServer = new JSONManagerServer<>("success");
+                            outSocket.println(decreaseQuantityJSONManagerServer.getJsonObject().toString());
                         }
-                        else if ((shopServer.addSale(workingItem, amountDecrease)) == false){
-                            JSONManagerServer messageDecrease = new JSONManagerServer("failure");
-                            outSocket.print(messageDecrease.getJsonObject().toString());
-                        }
-                        else{
-                            outSocket.println(nullCheck.getJsonObject().toString());
+                        else {
+                            JSONManagerServer<Boolean> nullCheckQuantity = new JSONManagerServer<>("failure");
+                            outSocket.println(nullCheckQuantity.getJsonObject().toString());
                         }
                         break;
 

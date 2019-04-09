@@ -1,8 +1,8 @@
+package Client.View;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Client.View;
 
 import javax.swing.*;
 import javax.swing.WindowConstants;
@@ -34,7 +34,7 @@ public class GUIController {
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");
-		
+
 		B1 b1 = new B1(menu, user);
 		B2 b2 = new B2(menu, user);
 		B3 b3 = new B3(menu, user);
@@ -45,7 +45,7 @@ public class GUIController {
 		menu.setB3(b3);
 		menu.setB4(b4);
 		menu.setB5(b5);
-				
+
 		menu.startMainMenu();
 		frame.setContentPane(menu.getMain());
 		frame.setSize(650, 565);

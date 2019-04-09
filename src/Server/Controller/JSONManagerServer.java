@@ -1,8 +1,8 @@
+package Server.Controller;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Server.Controller;
 
 import org.json.JSONObject;
 
@@ -19,35 +19,37 @@ public class JSONManagerServer<Type> {
 	 * Constructor for the manager.
 	 * @param item the type for the JSON Manager Server object
 	 */
-	public JSONManagerServer(Type item) {
+	public JSONManagerServer(Type item, String flag) {
 		jsonObject = new JSONObject(item);
+
+		switch(flag){
+			case "success":
+				jsonObject.put("success", true);
+				jsonObject.put("failure", false);
+				break;
+			case "failure":
+				jsonObject.put("failure", true);
+				jsonObject.put("success", false);
+				break;
+		}
+
 	}
 
-
-	/**
-	 * Constructs the JSONManagerServer for the null return
-	 */
-	public JSONManagerServer(){
-		jsonObject = new JSONObject();
-		jsonObject.isNull("nullType");
-	}
-
-
-	/**
-	 * Constructs the JSONManagerServer for the quantity change responses
-	 * @param flag the reference on which message to send
-	 */
-	public JSONManagerServer(String flag){
+	public JSONManagerServer(String flag) {
 		jsonObject = new JSONObject();
 
-		if(flag == "success"){
-			jsonObject.put("message", "Sale Successful. Quantity Changed.");
+		switch(flag){
+			case "success":
+				jsonObject.put("success", true);
+				jsonObject.put("failure", false);
+				break;
+			case "failure":
+				jsonObject.put("failure", true);
+				jsonObject.put("success", false);
+				break;
 		}
-		else if (flag == "failure"){
-			jsonObject.put("message", "Sale NOT Successful.");
-		}
-	}
 
+	}
 
 	/**
 	 * Getter for the JSON object

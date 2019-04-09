@@ -1,8 +1,8 @@
+package Client.View;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Client.View;
 
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
