@@ -1,9 +1,9 @@
+package Client.Controller;
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
 
-package Client.Controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -68,16 +68,9 @@ public class Client {
             try{
                 while(flag){
                 	outSocket.println(jObject.getJsonObject().toString());
-                        response = inSocket.readLine();
-
-                        if(response == null){
-                            finalObj = null;
-                        }
-                        else{
-                            finalObj = new JSONObject(response);
-                        }
-
-                        flag = false;
+                	response = inSocket.readLine();
+                	finalObj = new JSONObject(response);
+                    flag = false;
                 }
             } catch (NullPointerException e) {
                 System.out.println("Client lost connection to server...");
@@ -96,7 +89,11 @@ public class Client {
         JSONManagerClient inventoryClient = new JSONManagerClient("listAllTools");
         communicateWithServer(inventoryClient);
 
-        return finalObj;
+        if(finalObj.getBoolean("success")){
+            return finalObj;
+        }
+        else
+            return null;
     }
 
     /*
@@ -117,14 +114,13 @@ public class Client {
         JSONManagerClient searchToolNameClient = new JSONManagerClient("searchToolName", toolName);
         communicateWithServer(searchToolNameClient);
 
-        if(finalObj == null){
-            System.err.println("Item Name not in Inventory");
-            return null;
-        }
-        else{
+        if(finalObj.getBoolean("success")){
             return finalObj;
         }
-    }
+        else
+            return null;
+        }
+
 
 
     /*
@@ -135,12 +131,11 @@ public class Client {
         JSONManagerClient searchToolIdClient = new JSONManagerClient("searchToolId", toolId);
         communicateWithServer(searchToolIdClient);
 
-        if(finalObj == null){
-            System.err.println("Item ID not in Inventory");
-            return null;
+        if(finalObj.getBoolean("success")){
+            return finalObj;
         }
         else{
-            return finalObj;
+            return null;
         }
     }
 
@@ -153,12 +148,11 @@ public class Client {
         JSONManagerClient decreaseQuantityClient = new JSONManagerClient("decreaseQuantity", toolId, amount);
         communicateWithServer(decreaseQuantityClient);
 
-        if(finalObj == null){
-            System.err.println("Could not decrease Quantity");
-            return null;
+        if(finalObj.getBoolean("success")){
+            return finalObj;
         }
         else{
-            return finalObj;
+            return null;
         }
     }
     /*
