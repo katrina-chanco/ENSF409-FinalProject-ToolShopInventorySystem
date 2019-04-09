@@ -3,10 +3,7 @@ package Server.Controller;
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-<<<<<<< HEAD
-=======
 
->>>>>>> bdef2a6919cf7641c4a9150e7fdfdd87c8fd0e0f
 
 import org.json.JSONObject;
 
