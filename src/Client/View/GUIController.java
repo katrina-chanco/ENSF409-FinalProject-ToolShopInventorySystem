@@ -1,8 +1,10 @@
+package Client.View;
+
+
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-package Client.View;
 
 import javax.swing.*;
 import javax.swing.WindowConstants;
@@ -29,7 +31,7 @@ public class GUIController {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		LoadingWindow w = new LoadingWindow();
+//		LoadingWindow w = new LoadingWindow();
 		Client user = new Client("localhost", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);

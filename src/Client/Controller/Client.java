@@ -1,9 +1,9 @@
+package Client.Controller;
+
 // Nathan Darby - 30033588
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-
-package Client.Controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
