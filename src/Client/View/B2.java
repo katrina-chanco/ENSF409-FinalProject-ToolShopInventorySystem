@@ -44,8 +44,12 @@ public class B2 extends GUIController implements ActionListener{
 			searchName(nameSearch);
 		}else if(i == 1) {
 			String idSearch = JOptionPane.showInputDialog("Please enter the ID of a tool to search for");
-			int id = Integer.parseInt(idSearch);
-			searchID(id);
+			try{
+				int id = Integer.parseInt(idSearch);
+				searchID(id);
+			}catch(NumberFormatException n){
+				JOptionPane.showMessageDialog(null, "Please enter a number");
+			}
 		}
 	}
 	/**
