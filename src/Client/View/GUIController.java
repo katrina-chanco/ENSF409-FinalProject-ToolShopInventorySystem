@@ -29,7 +29,8 @@ public class GUIController {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Client user = new Client("toolshop.krul.ca", 8099);
+		LoadingWindow w = new LoadingWindow();
+		Client user = new Client("localhost", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");
