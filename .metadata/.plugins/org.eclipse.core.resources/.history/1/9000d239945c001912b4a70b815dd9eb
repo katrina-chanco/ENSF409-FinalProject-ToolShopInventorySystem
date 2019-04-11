@@ -107,7 +107,7 @@ public class Client {
     	
     	JSONManagerClient viewOrderClient = new JSONManagerClient("viewOrder", startDate, endDate,"orderList");
     	communicateWithServer(viewOrderClient);
-    	System.out.println(finalObj.toString());
+    	
     	if(finalObj.getBoolean("success")){
             return finalObj;
         }

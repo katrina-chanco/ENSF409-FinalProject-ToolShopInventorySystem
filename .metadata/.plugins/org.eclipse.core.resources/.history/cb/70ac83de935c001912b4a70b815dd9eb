@@ -71,7 +71,6 @@ public class B6 extends GUIController implements ActionListener{
 						orders = null;
 						try {
 							orders = client.viewOrder(startDate, endDate);
-				
 						} catch (IOException e1) {
 							System.err.println("Unable to view orders");
 						}
@@ -114,8 +113,8 @@ public class B6 extends GUIController implements ActionListener{
 	public void display() {
 		int length = 0;
 		System.out.println(orders.toString());
-		//length = orders.getJSONArray("orders").length();
-		length = 0;
+		length = orders.getJSONArray("orders").length();
+		
 		String [] columnNames = {"Item Name", "Quantity", "Price", "Supplier", "Supplier ID", "Item ID"};
 		String [][] data = new String[length][6];
 		String [] row = new String[6];

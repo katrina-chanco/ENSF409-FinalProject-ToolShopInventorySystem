@@ -78,7 +78,6 @@ public class B3 extends GUIController implements ActionListener{
 					}
 					if(search == null) {
 						JOptionPane.showMessageDialog(null, "No item found");
-						return;
 					}else {
 						int itemId = search.getInt("id");
 						try{
@@ -105,7 +104,6 @@ public class B3 extends GUIController implements ActionListener{
 					}
 					if(search == null) {
 						JOptionPane.showMessageDialog(null, "No item found");
-						return;
 					}else {
 						
 					}
@@ -119,7 +117,6 @@ public class B3 extends GUIController implements ActionListener{
 					}
 					
 				}
-				JOptionPane.showMessageDialog(null, "Sale Completed");
 				frame.setVisible(false);
 			}
 		});

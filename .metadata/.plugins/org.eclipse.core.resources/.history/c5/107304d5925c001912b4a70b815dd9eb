@@ -1,7 +1,6 @@
 package Client.View;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -11,10 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
 import org.json.JSONObject;
 
@@ -26,8 +22,6 @@ import Client.Controller.Client;
  */
 public class B6 extends GUIController implements ActionListener{
 
-	private JSONObject orders;
-	
 	public B6(GUI m, Client c) {
 		super(m, c);
 	}
@@ -68,10 +62,9 @@ public class B6 extends GUIController implements ActionListener{
 					if(endDate.trim().equals("")) {
 						JOptionPane.showMessageDialog(null, "Please enter a Name or ID");
 					}else {
-						orders = null;
+						JSONObject orders = null;
 						try {
 							orders = client.viewOrder(startDate, endDate);
-				
 						} catch (IOException e1) {
 							System.err.println("Unable to view orders");
 						}
@@ -80,8 +73,7 @@ public class B6 extends GUIController implements ActionListener{
 							}
 						}
 				}
-				
-				display();
+					
 				frame.setVisible(false);
 			}
 		});
@@ -109,52 +101,6 @@ public class B6 extends GUIController implements ActionListener{
 		frame.setSize(400, 200);
 		frame.setVisible(true);
 		
-	}
-	
-	public void display() {
-		int length = 0;
-		System.out.println(orders.toString());
-		//length = orders.getJSONArray("orders").length();
-		length = 0;
-		String [] columnNames = {"Item Name", "Quantity", "Price", "Supplier", "Supplier ID", "Item ID"};
-		String [][] data = new String[length][6];
-		String [] row = new String[6];
-		for(int i = 0; i < length; i++) {
-			row = getRow(i);
-			data[i] = row;
-		}
-		
-		JTable table = new JTable(data, columnNames);
-		table.setEnabled(false);
-		JScrollPane sp = new JScrollPane(table);
-		
-		
-		JFrame frame = new JFrame();
-		frame.setTitle("Order List");
-		frame.add(sp);
-		frame.setMinimumSize(new Dimension(700, 600));
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-	}
-	
-	public String[] getRow(int i) {
-		String [] s = new String[6];
-		JSONObject item = orders.getJSONArray("itemList").getJSONObject(i);
-		String itemName = item.getString("itemName");
-        String quantity = Integer.toString(item.getInt("quantity"));
-        String price = Integer.toString(item.getInt("price"));
-
-        JSONObject supplier = item.getJSONObject("supplier");
-        String companyName = supplier.getString("companyName");
-        String supplierId = Integer.toString(supplier.getInt("id"));
-        String itemId = Integer.toString(item.getInt("id")); 
-        s[0] = itemName;
-        s[1] = quantity;
-        s[2] = price;
-        s[3] = companyName;
-        s[4] = supplierId;
-        s[5] = itemId;
-		return s;
 	}
 
 }

@@ -119,7 +119,6 @@ public class B3 extends GUIController implements ActionListener{
 					}
 					
 				}
-				JOptionPane.showMessageDialog(null, "Sale Completed");
 				frame.setVisible(false);
 			}
 		});

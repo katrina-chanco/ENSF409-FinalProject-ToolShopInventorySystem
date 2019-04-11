@@ -71,7 +71,6 @@ public class B6 extends GUIController implements ActionListener{
 						orders = null;
 						try {
 							orders = client.viewOrder(startDate, endDate);
-				
 						} catch (IOException e1) {
 							System.err.println("Unable to view orders");
 						}
