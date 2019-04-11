@@ -6,24 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Client/View/AccessLevel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/Model/AccountType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/JSONManagerClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/Controller/JSONManagerClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Client/View/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/JSONManagerServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/JSONManagerServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/ServerShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ENSF409-FinalProject-ToolShopInventorySystem/Server/Controller/ServerShop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Controller/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Controller/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/Controller/JSONManagerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Controller/JSONManagerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/View/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/View/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/View/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/View/GUIController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/JSONManagerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/JSONManagerServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Controller/ServerShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Controller/ServerShop.java" afterDir="false" />
-    </list>
+    <list default="true" id="f3b91ab1-37e3-42eb-a63e-fcf7f771737a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -148,8 +131,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Client/View/addUserGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="78" column="74" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+            <state relative-caret-position="369">
+              <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1351#1443#0" expanded="true" />
@@ -358,7 +341,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555006730253" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555006732166" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
@@ -486,7 +469,7 @@
       <workItem from="1554216379673" duration="31766000" />
       <workItem from="1554823976460" duration="2051000" />
       <workItem from="1554943175153" duration="2522000" />
-      <workItem from="1554953575298" duration="10559000" />
+      <workItem from="1554953575298" duration="10676000" />
     </task>
     <servers />
   </component>
@@ -523,7 +506,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79152000" />
+    <option name="totallyTimeSpent" value="79269000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1479" height="878" extended-state="6" />
@@ -540,7 +523,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.32916668" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32916668" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.5277778" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.5277778" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.5152778" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -904,8 +887,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client/View/addUserGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="78" column="74" selection-start-line="78" selection-start-column="74" selection-end-line="78" selection-end-column="74" />
+        <state relative-caret-position="369">
+          <caret line="90" column="5" lean-forward="true" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1351#1443#0" expanded="true" />
