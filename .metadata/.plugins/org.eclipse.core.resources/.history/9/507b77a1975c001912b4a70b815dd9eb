@@ -55,7 +55,7 @@ public class B6 extends GUIController implements ActionListener{
 		viewOrders.addActionListener(new ActionListener() {
 			
 			/*
-			 * This action listener is activated when the view order button is pressed
+			 * This action listener is activated when the make sale button is pressed
 			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
