@@ -82,7 +82,7 @@ public class JSONManagerClient{
 		jsonObject = new JSONObject();
 		jsonObject.put("command", option);
 		jsonObject.put("startDate", start);
-		jsonObject.put("endtDate", end);
+		jsonObject.put("endDate", end);
 	}
 
 

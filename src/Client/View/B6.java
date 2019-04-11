@@ -64,24 +64,23 @@ public class B6 extends GUIController implements ActionListener{
 				
 				
 
-				if(startDate.trim().equals("")) {
-					if(endDate.trim().equals("")) {
-						JOptionPane.showMessageDialog(null, "Please enter a Name or ID");
-					}else {
-						orders = null;
-						try {
-							orders = client.viewOrder(startDate, endDate);
-				
-						} catch (IOException e1) {
-							System.err.println("Unable to view orders");
+				if(startDate.trim().equals("") && endDate.trim().equals("")) {
+					JOptionPane.showMessageDialog(null, "Please enter a valid date");
+				}else {
+					orders = null;
+					try {
+						orders = client.viewOrder(startDate, endDate);
+
+					} catch (IOException e1) {
+						System.err.println("Unable to view orders");
+					}
+					if(orders == null) {
+						if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
+							JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+						} else {
+							JOptionPane.showMessageDialog(null, "No order found");
 						}
-						if(orders == null) {
-							if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
-								JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
-							} else {
-								JOptionPane.showMessageDialog(null, "No order found");
-							}							}
-						}
+					}
 				}
 				
 				display();
