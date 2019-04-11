@@ -16,6 +16,7 @@ public class GUIController {
 
 	protected GUI menu;
 	protected Client client;
+	protected static JSONObject userReturnJSON;
 
 	 /**
 	 * Default constructor for the class, calls the constructor from the superclass
@@ -62,9 +63,10 @@ public class GUIController {
 				try {
 					String passwordString = new String(password.getPassword());
 					JSONObject userReturn = user.login(userName.getText(), passwordString);
-					if(userReturn.getBoolean("success")) {
+					userReturnJSON = userReturn;
+				if(userReturn.getBoolean("success")) {
 						JOptionPane.showMessageDialog(loginPanel,
-								"Welcome "+userReturn.getString("userName")+" you are a "+userReturn.getJSONObject("accessLevel").getString("typeName"),"Success",JOptionPane.PLAIN_MESSAGE);
+								"Welcome "+userReturn.getString("userName")+" you are "+userReturn.getJSONObject("accessLevel").getString("typeName"),"Success",JOptionPane.PLAIN_MESSAGE);
 						break;
 					} else {
 						JOptionPane.showMessageDialog(loginPanel,

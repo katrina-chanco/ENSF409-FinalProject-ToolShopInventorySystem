@@ -77,9 +77,11 @@ public class B3 extends GUIController implements ActionListener{
 						System.err.println("Unable to search");
 					}
 					if(search == null) {
-						JOptionPane.showMessageDialog(null, "No item found");
-						return;
-					}else {
+						if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
+							JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+						} else {
+							JOptionPane.showMessageDialog(null, "No item found");
+						}					}else {
 						int itemId = search.getInt("id");
 						try{
 							int amountToDecrease = Integer.parseInt(amount);
@@ -104,8 +106,11 @@ public class B3 extends GUIController implements ActionListener{
 						JOptionPane.showMessageDialog(null, "Invalid ID. Please enter valid ID");
 					}
 					if(search == null) {
-						JOptionPane.showMessageDialog(null, "No item found");
-						return;
+						if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
+							JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+						} else {
+							JOptionPane.showMessageDialog(null, "No item found");
+						}
 					}else {
 						
 					}
