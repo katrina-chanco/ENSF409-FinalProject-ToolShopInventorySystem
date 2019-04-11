@@ -26,10 +26,8 @@ public class JSONManagerServer<Type> {
 		switch(flag){
 			case "success":
 				jsonObject.put("success", true);
-				jsonObject.put("failure", false);
 				break;
 			case "failure":
-				jsonObject.put("failure", true);
 				jsonObject.put("success", false);
 				break;
 		}

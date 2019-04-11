@@ -2,7 +2,11 @@ package Server.Controller;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 import Server.Model.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -40,6 +44,11 @@ public class ServerShop implements Constants,Runnable {
 	 * Creates the socket that writes out of the server
 	 */
 	private PrintWriter outSocket;
+
+	/**
+	 * User account in this shop session.
+	 */
+	private User user;
 
 
 	/**
@@ -271,7 +280,7 @@ public class ServerShop implements Constants,Runnable {
 						Item workingItem = this.getInventory().searchById(numberDecrease);
 						Boolean saleComplete = this.addSale(workingItem, amountDecrease);
 
-						if (saleComplete == true) {
+						if (saleComplete) {
 							JSONManagerServer<Boolean> decreaseQuantityJSONManagerServer = new JSONManagerServer<>("success");
 							outSocket.println(decreaseQuantityJSONManagerServer.getJsonObject().toString());
 						} else {
@@ -280,6 +289,31 @@ public class ServerShop implements Constants,Runnable {
 						}
 						break;
 
+					case "login":
+						String userName = obj.getString("userName");
+						String password = obj.getString("password");
+						user = new User(userName,password,database);
+						if (user.isValidUser()) {
+							JSONManagerServer<User> loginJSONManagerServer = new JSONManagerServer<>(user,"success");
+							outSocket.println(loginJSONManagerServer.getJsonObject().toString());
+						} else {
+							JSONManagerServer<Boolean> nullCheckQuantity = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckQuantity.getJsonObject().toString());
+						}
+						break;
+
+					case "getAccountsTypes":
+						JSONArray jsonArray = new JSONArray(user.getAccountTypes());
+						JSONObject jsonObject = new JSONObject();
+						jsonObject.put("levels",jsonArray);
+						jsonObject.put("success",true);
+						outSocket.println(jsonObject.toString());
+						break;
+					case "addUser":
+						boolean newUserSuccess = user.addUser(obj.getString("userName"),obj.getString("password"),obj.getInt("level"));
+						JSONManagerServer<Boolean> returnOfAdd = new JSONManagerServer<>(newUserSuccess?"success":"failure");
+						outSocket.println(returnOfAdd.getJsonObject().toString());
+						break;
 					default:
 						break;
 

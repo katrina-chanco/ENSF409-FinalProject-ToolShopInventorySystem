@@ -82,6 +82,12 @@ public class Client {
 
     }
 
+    public JSONObject login(String userName, String password) throws IOException {
+        JSONManagerClient inventoryClient = new JSONManagerClient("login",userName,password);
+        communicateWithServer(inventoryClient);
+        return finalObj;
+    }
+
     /*
      * sends a command to list all tools to the socket
      */
@@ -167,6 +173,33 @@ public class Client {
 			System.err.println("Unable to close sockets");
 		}
     	
+    }
+
+    /**
+     * request server for a list of account types
+     * @return json object
+     */
+    public JSONObject getAccountTypes() throws IOException {
+        JSONManagerClient accountTypes = new JSONManagerClient("getAccountsTypes");
+        communicateWithServer(accountTypes);
+
+        if(finalObj.getBoolean("success")){
+            return finalObj;
+        }
+        else
+            return null;
+    }
+
+    /**
+     * adds user to server
+     * @param usernameString username
+     * @param passwordString password
+     * @param typeId access level
+     */
+    public JSONObject addUser(String usernameString, String passwordString, int typeId) throws IOException {
+        JSONManagerClient inventoryClient = new JSONManagerClient("addUser",usernameString,passwordString,typeId);
+        communicateWithServer(inventoryClient);
+        return finalObj;
     }
 }
 
