@@ -64,7 +64,7 @@ public class GUIController {
 					JSONObject userReturn = user.login(userName.getText(), passwordString);
 					if(userReturn.getBoolean("success")) {
 						JOptionPane.showMessageDialog(loginPanel,
-								"Welcome "+userReturn.getString("userName"),"Success",JOptionPane.PLAIN_MESSAGE);
+								"Welcome "+userReturn.getString("userName")+" you are a "+userReturn.getJSONObject("accessLevel").getString("typeName"),"Success",JOptionPane.PLAIN_MESSAGE);
 						break;
 					} else {
 						JOptionPane.showMessageDialog(loginPanel,
