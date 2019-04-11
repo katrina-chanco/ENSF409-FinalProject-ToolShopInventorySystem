@@ -96,6 +96,19 @@ public class Client {
         else
             return null;
     }
+    
+    public JSONObject viewOrder(String startDate, String endDate) throws IOException {
+    	
+    	JSONManagerClient viewOrderClient = new JSONManagerClient("viewOrder", startDate, endDate);
+    	communicateWithServer(viewOrderClient);
+    	
+    	if(finalObj.getBoolean("success")){
+            return finalObj;
+        }
+        else
+            return null;
+    	
+    }
 
     /*
      * Sends a quit command to the socket, used to show the client has ended
@@ -156,6 +169,8 @@ public class Client {
             return null;
         }
     }
+    
+   
     /*
      * Closes the sockets
      */

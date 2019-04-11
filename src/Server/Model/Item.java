@@ -100,7 +100,7 @@ public class Item implements Constants{
 	 * Quantity setter.
 	 * @param quantity Quantity of item.
 	 */
-	public void setQuantity(int quantity, Database database) {
+	synchronized public void setQuantity(int quantity, Database database) {
 		this.quantity = quantity;
 		try {
 			Connection connection = database.getConnection();

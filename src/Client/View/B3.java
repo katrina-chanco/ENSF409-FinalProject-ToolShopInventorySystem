@@ -69,7 +69,7 @@ public class B3 extends GUIController implements ActionListener{
 				if(id.trim().equals("")) {
 					if(name.trim().equals("")) {
 						JOptionPane.showMessageDialog(null, "Please enter a Name or ID");
-					}
+					}else {
 					JSONObject search = null;
 					try {
 						search = client.searchToolName(name);
@@ -89,6 +89,7 @@ public class B3 extends GUIController implements ActionListener{
 							System.err.println("Unable to read number");
 						}
 					}
+				}
 					
 				}else {
 					JSONObject search = null;
@@ -99,7 +100,7 @@ public class B3 extends GUIController implements ActionListener{
 					} catch (IOException e1) {
 						System.err.println("Unable to search");
 					} catch(NumberFormatException n){
-						JOptionPane.showMessageDialog(null, "Invalid ID. Please enter a number");
+						JOptionPane.showMessageDialog(null, "Invalid ID. Please enter valid ID");
 					}
 					if(search == null) {
 						JOptionPane.showMessageDialog(null, "No item found");

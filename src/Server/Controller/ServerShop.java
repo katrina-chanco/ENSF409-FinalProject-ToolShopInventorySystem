@@ -3,6 +3,8 @@ package Server.Controller;
 import java.io.*;
 import java.net.Socket;
 import Server.Model.*;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
@@ -185,7 +187,10 @@ public class ServerShop implements Constants,Runnable {
 	 * @param quantity Quantity of item to sell.
 	 * @return true if item was sold, false if there was inefficient quantity.
 	 */
-	public boolean addSale(Item item, int quantity) {
+	synchronized public boolean addSale(Item item, int quantity) {
+		if(item.getQuantity()-quantity < orderMinThreshhold) {
+			this.addOrder(item, orderMaxThreshhold);
+		}
 		return item.addSale(quantity,database);
 	}
 
@@ -228,8 +233,16 @@ public class ServerShop implements Constants,Runnable {
 
 				switch (action) {
 					case "listAllTools":
-						JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(this.getInventory(), "success");
-						outSocket.println(inventoryJSONManagerServer.getJsonObject().toString());
+						Inventory inventory = this.getInventory();
+						
+						if(inventory == null) {
+							JSONManagerServer<Inventory> nullCheckInventory = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckInventory.getJsonObject().toString());
+						}
+						else {
+							JSONManagerServer<Inventory> inventoryJSONManagerServer = new JSONManagerServer<>(inventory, "success");
+							outSocket.println(inventoryJSONManagerServer.getJsonObject().toString());
+						}
 						break;
 
 					case "QUIT":
@@ -277,6 +290,22 @@ public class ServerShop implements Constants,Runnable {
 						} else {
 							JSONManagerServer<Boolean> nullCheckQuantity = new JSONManagerServer<>("failure");
 							outSocket.println(nullCheckQuantity.getJsonObject().toString());
+						}
+						break;
+						
+					case "viewOrder":
+						String start = obj.getString("startDate");
+						String end = obj.getString("endDate");
+						
+						JSONObject orderArray = order.getOrdersForDate(start, end);
+						
+						if(orderArray == null) {
+							JSONManagerServer<JSONObject> nullCheckInventory = new JSONManagerServer<>("failure");
+							outSocket.println(nullCheckInventory.getJsonObject().toString());
+						}
+						else {
+							orderArray.put("success", true);
+							outSocket.println(orderArray.toString());
 						}
 						break;
 

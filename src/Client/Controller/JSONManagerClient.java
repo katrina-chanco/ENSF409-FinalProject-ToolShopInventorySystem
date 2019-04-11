@@ -63,6 +63,14 @@ public class JSONManagerClient{
 		jsonObject.put("number", number);
 		jsonObject.put("amount", amount);
 	}
+	
+	public JSONManagerClient(String option, String start, String end){
+		jsonObject = new JSONObject();
+		jsonObject.put("command", option);
+		jsonObject.put("startDate", start);
+		jsonObject.put("endtDate", end);
+	}
+
 
 	/**
 	 * Getter for the JSON Object

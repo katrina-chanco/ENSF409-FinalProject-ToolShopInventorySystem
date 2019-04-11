@@ -29,7 +29,7 @@ public class GUIController {
 	 */
 	public static void main(String[] args) {
 //		LoadingWindow w = new LoadingWindow();
-	//	Client user = new Client("localhost", 8099);
+		//Client user = new Client("localhost", 8099);
 		Client user = new Client("toolshop.krul.ca", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
@@ -40,11 +40,18 @@ public class GUIController {
 		B3 b3 = new B3(menu, user);
 		B4 b4 = new B4(menu, user);
 		B5 b5 = new B5(menu, user);
-		menu.setB1(b1);
-		menu.setB2(b2);
-		menu.setB3(b3);
-		menu.setB4(b4);
-		menu.setB5(b5);
+		B6 b6 = new B6(menu, user);
+		B7 b7 = new B7(menu, user);
+		B8 b8 = new B8(menu, user);
+		menu.setButton(b1);
+		menu.setButton(b2);
+		menu.setButton(b3);
+		menu.setButton(b4);
+		menu.setButton(b5);
+		menu.setButton(b6);
+		menu.setButton(b7);
+		menu.setButton(b8);
+		
 
 		menu.startMainMenu();
 		frame.setContentPane(menu.getMain());

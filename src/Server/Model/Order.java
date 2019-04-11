@@ -34,7 +34,7 @@ public class Order extends DatabaseManager implements Constants{
 	 * @param item Item to be ordered.
 	 * @param quantity Quantity to be ordered.
 	 */
-	public void addOrder(Item item,int quantity) {
+	synchronized public void addOrder(Item item,int quantity)  {
 		OrderLine orderLine = new OrderLine(item.getId(),quantity, LocalDate.now());
 	//	orderLines.add(orderLine);
 		item.setQuantity(item.getQuantity()+quantity,database);
@@ -85,7 +85,7 @@ public class Order extends DatabaseManager implements Constants{
 	 * @param formattedDateEnd end of date range(String in format yyyy-mm-dd cause SQL problems)
 	 * @return json of orders with orderLines for a given date range.
 	 */
-	public String getOrdersForDate(String formattedDateStart, String formattedDateEnd) {
+	public JSONObject getOrdersForDate(String formattedDateStart, String formattedDateEnd) {
 		try {
 			Connection connection = database.getConnection();
 			String sqlString = "SELECT orders.orderId,orders.date,orderLines.quantityOrdered,items.itemName,items.quantity,items.price,suppliers.supplierId,suppliers.companyName,suppliers.companyAddress,suppliers.salesContact  FROM orders\n" +
@@ -121,8 +121,10 @@ public class Order extends DatabaseManager implements Constants{
 
 				currentOrder.put(jsonOrderLine);
 			}
-
-			return currentOrder.toString();
+			JSONObject cur = new JSONObject();
+			cur.put("orders", currentOrder);
+			return cur;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

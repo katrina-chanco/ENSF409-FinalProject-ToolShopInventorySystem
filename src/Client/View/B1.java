@@ -63,6 +63,7 @@ public class B1 extends GUIController implements ActionListener{
 		}
 		
 		JTable table = new JTable(data, columnNames);
+		table.setEnabled(false);
 		JScrollPane sp = new JScrollPane(table);
 		
 		

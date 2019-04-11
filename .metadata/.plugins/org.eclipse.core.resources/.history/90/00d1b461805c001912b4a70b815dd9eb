@@ -1,0 +1,24 @@
+package Client.View;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import Client.Controller.Client;
+
+/**
+ * Action Listener for the View Orders Button
+ *
+ */
+public class B6 extends GUIController implements ActionListener{
+
+	public B6(GUI m, Client c) {
+		super(m, c);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

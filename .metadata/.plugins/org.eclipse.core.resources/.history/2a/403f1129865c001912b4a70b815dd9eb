@@ -1,0 +1,38 @@
+package Client.View;
+
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import Client.Controller.Client;
+
+/**
+ * Action Listener for the View Orders Button
+ *
+ */
+public class B6 extends GUIController implements ActionListener{
+
+	public B6(GUI m, Client c) {
+		super(m, c);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JFrame frame = new JFrame();
+		JPanel insertFrame = new JPanel();
+		frame.setLayout(new BorderLayout(0, 0));
+		insertFrame.setLayout(new BorderLayout(0, 0));
+		
+		JLabel top = new JLabel("Enter a range of dates to search for:");
+		frame.add(top, BorderLayout.NORTH);
+		
+		
+	}
+
+}

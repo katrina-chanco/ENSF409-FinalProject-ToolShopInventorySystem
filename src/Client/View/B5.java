@@ -37,6 +37,9 @@ public class B5 extends GUIController implements ActionListener{
 	private JButton b3;
 	private JButton b4;
 	private JButton b5;
+	private JButton b6;
+	private JButton b7;
+	private JButton b8;
 	
 	public void setMainMenu() {
 		mainMenu = menu.getMain();
@@ -47,6 +50,9 @@ public class B5 extends GUIController implements ActionListener{
 		b3 = menu.getB3();
 		b4 = menu.getB4();
 		b5 = menu.getB5();
+		b6 = menu.getB6();
+		b7 = menu.getB7();
+		b8 = menu.getB8();
 	}
 	
 	@Override
@@ -61,6 +67,9 @@ public class B5 extends GUIController implements ActionListener{
 			b2.setEnabled(false);
 			b3.setEnabled(false);
 			b4.setEnabled(false);
+			b6.setEnabled(false);
+			b7.setEnabled(false);
+			b8.setEnabled(false);
 			return;
 		}
 		
