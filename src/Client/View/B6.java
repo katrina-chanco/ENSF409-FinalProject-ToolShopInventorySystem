@@ -69,8 +69,11 @@ public class B6 extends GUIController implements ActionListener{
 							System.err.println("Unable to view orders");
 						}
 						if(orders == null) {
-							JOptionPane.showMessageDialog(null, "No orders found");
-							}
+							if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
+								JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+							} else {
+								JOptionPane.showMessageDialog(null, "No order found");
+							}							}
 						}
 				}
 					
