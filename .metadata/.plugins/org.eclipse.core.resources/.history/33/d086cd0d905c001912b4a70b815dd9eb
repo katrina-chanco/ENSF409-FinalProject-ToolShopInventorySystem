@@ -17,48 +17,50 @@ import org.json.JSONObject;
 import Client.Controller.Client;
 
 /**
- * Listener for the Check Quantity button
+ * 
+ * Action Listener for the Search button, inherits from GUIController and uses the ActionListener interface
+ *
  */
-public class B2 extends GUIController implements ActionListener{
+public class B4 extends GUIController implements ActionListener{
 	/**
-	 * Default constructor for the B2 class, calls the constructor from the superclass
+	 * Default constructor, calls the constructor for the superclass
 	 * @param m GUI object
 	 * @param c Client object
 	 */
-	public B2(GUI m, Client c) {
+	public B4(GUI m, Client c) {
 		super(m, c);
 	}
-
 	
 	/**
 	 * Overrides the actionPerformed method from ActionListener
-	 * Creates a panel that asks for the user to choose to search by name or ID, then calls the appropriate search method
+	 * Displays a JOptionPane that lets the user choose to pick to search by ID or name
+	 * When the user chooses, the search method is called with the name or id specified
+	 * @Override
 	 */
-	@Override
 	public void actionPerformed(ActionEvent e) {
 		JPanel p = new JPanel();
 		String [] s = {"Seach Name", "Search ID"};
 		int i = JOptionPane.showOptionDialog(null, p,"Search for a tool by name or ID?" ,JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, s, null);
 		if(i == 0) {
 			String nameSearch = JOptionPane.showInputDialog("Please enter the name of a tool to search for");
-			if(nameSearch == null) {return;}
 			searchName(nameSearch);
 		}else if(i == 1) {
 			String idSearch = JOptionPane.showInputDialog("Please enter the ID of a tool to search for");
-			if(idSearch == null) {return;}
+
 			try{
 				int id = Integer.parseInt(idSearch);
 				searchID(id);
 			}catch(NumberFormatException n){
 				JOptionPane.showMessageDialog(null, "Please enter a number");
 			}
+
 		}
 	}
 	/**
-	 * Takes a string as the name of a tool to search for and passes it to the client
-	 * The client will return a JSONObject which will then be parsed and the quantity will be displayed to the user
-	 * If the client cannot find the specified tool, a message will be displayed to the user stating that the tool was not found
-	 * @param s The name of the tool to search for as a String
+	 * Takes a String and calls the search method from the client to search for the tool
+	 * The client returns a JSON object, which is then parsed and displayed for the user
+	 * If the tool is not found, it displays a message for the user
+	 * @param s Tool Name to search for
 	 */
 	public void searchName(String s) {
 		JSONObject search = null;
@@ -68,24 +70,25 @@ public class B2 extends GUIController implements ActionListener{
 			System.err.println("Unable to search");
 		}
 		if(search == null) {
-			if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
-			} else {
-				JOptionPane.showMessageDialog(null, "No item found");
-			}
+			JOptionPane.showMessageDialog(null, "No item found");
 		}else {
 			String itemName = search.getString("itemName");
 	        String quantity = Integer.toString(search.getInt("quantity"));
+	        String price = Integer.toString(search.getInt("price"));
+
+	        JSONObject supplier = search.getJSONObject("supplier");
+	        String companyName = supplier.getString("companyName");
+	        String supplierId = Integer.toString(supplier.getInt("id"));
 	        String itemId = Integer.toString(search.getInt("id"));
-	        String message = "Item Name: "+itemName+"  Item ID: "+ itemId+"  Quantity: "+quantity;
+	        String message = "Item Name: "+itemName+"  Quantity: "+quantity+"  Price: "+price+"  Supplier: "+companyName+"  Supplier ID: "+supplierId+"  Item ID: "+itemId;
 	        JOptionPane.showMessageDialog(null, message);
 		}
 	}
 	/**
-	 * Takes an integer as the ID of a tool to search for and passes it to the client
-	 * The client will return a JSONObject which will then be parsed and the quantity will be displayed to the user
-	 * If the client cannot find the specified tool, a message will be displayed to the user stating that the tool was not found
-	 * @param id The ID of a tool to search for as an integer
+	 * Takes an integer and calls the search method from the client to search for the tool
+	 * The client returns a JSON object, which is then parsed and displayed for the user
+	 * If the tool is not found, it displays a message for the user
+	 * @param id ID of the tool to search for
 	 */
 	public void searchID(int id) {
 		JSONObject search = null;
@@ -95,16 +98,17 @@ public class B2 extends GUIController implements ActionListener{
 			System.err.println("Unable to search");
 		}
 		if(search == null) {
-			if(userReturnJSON.getJSONObject("accessLevel").getInt("userLevelID")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
-			} else {
-				JOptionPane.showMessageDialog(null, "No item found");
-			}
+			JOptionPane.showMessageDialog(null, "No item found");
 		}else {
 			String itemName = search.getString("itemName");
 	        String quantity = Integer.toString(search.getInt("quantity"));
+	        String price = Integer.toString(search.getInt("price"));
+
+	        JSONObject supplier = search.getJSONObject("supplier");
+	        String companyName = supplier.getString("companyName");
+	        String supplierId = Integer.toString(supplier.getInt("id"));
 	        String itemId = Integer.toString(search.getInt("id"));
-	        String message = "Item Name: "+itemName+"  Item ID: "+ itemId+"  Quantity: "+quantity;
+	        String message = "Item Name: "+itemName+"  Quantity: "+quantity+"  Price: "+price+"  Supplier: "+companyName+"  Supplier ID: "+supplierId+"  Item ID: "+itemId;
 	        JOptionPane.showMessageDialog(null, message);
 		}
 	}
