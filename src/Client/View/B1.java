@@ -11,6 +11,7 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.NumberFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -88,7 +89,9 @@ public class B1 extends GUIController implements ActionListener{
 		JSONObject item = obj.getJSONArray("itemList").getJSONObject(i);
 		String itemName = item.getString("itemName");
         String quantity = Integer.toString(item.getInt("quantity"));
-        String price = Integer.toString(item.getInt("price"));
+
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+		String price = formatter.format(item.getDouble("price"));
 
         JSONObject supplier = item.getJSONObject("supplier");
         String companyName = supplier.getString("companyName");
