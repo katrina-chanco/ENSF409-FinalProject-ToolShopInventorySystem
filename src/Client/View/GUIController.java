@@ -33,8 +33,8 @@ public class GUIController {
 	 */
 	public static void main(String[] args) {
 //		LoadingWindow w = new LoadingWindow();
-		Client user = new Client("localhost", 8099);
-		//Client user = new Client("toolshop.krul.ca", 8099);
+		//Client user = new Client("localhost", 8099);
+		Client user = new Client("toolshop.krul.ca", 8099);
 
 
 
