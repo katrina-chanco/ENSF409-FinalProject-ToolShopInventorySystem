@@ -7,6 +7,10 @@ package Client.View;
 import javax.swing.*;
 import javax.swing.WindowConstants;
 import Client.Controller.Client;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.Arrays;
 
 public class GUIController {
 
@@ -29,6 +33,61 @@ public class GUIController {
 	 */
 	public static void main(String[] args) {
 //		LoadingWindow w = new LoadingWindow();
+		Client user = new Client("localhost", 8099);
+		//Client user = new Client("toolshop.krul.ca", 8099);
+
+
+
+		//NATHAN PLEASE FIX/ORGINIZE THIS FOR YOUR CODE
+		//auto login dialog
+		do {
+			JPanel loginPanel = new JPanel();
+			loginPanel.setLayout(new BoxLayout(loginPanel, BoxLayout.Y_AXIS));
+			JLabel labelUser = new JLabel("Enter your username:");
+			JLabel labelPass = new JLabel("Enter your password:");
+			JTextField userName = new JTextField();
+			JPasswordField password = new JPasswordField(10);
+			loginPanel.add(labelUser);
+			loginPanel.add(userName);
+			loginPanel.add(labelPass);
+			loginPanel.add(password);
+			String[] options = new String[]{"Login", "Cancel"};
+			int option = JOptionPane.showOptionDialog(null, loginPanel, "Login",
+					JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+					null, options, options[0]);
+
+			if(option == 0)
+			{
+				//login
+				try {
+					String passwordString = new String(password.getPassword());
+					JSONObject userReturn = user.login(userName.getText(), passwordString);
+					if(userReturn.getBoolean("success")) {
+						JOptionPane.showMessageDialog(loginPanel,
+								"Welcome "+userReturn.getString("userName"),"Success",JOptionPane.PLAIN_MESSAGE);
+						break;
+					} else {
+						JOptionPane.showMessageDialog(loginPanel,
+								"Incorrect username or password. Please try again!",
+								"Login Error",
+								JOptionPane.ERROR_MESSAGE);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				//quit
+				user.close();
+				System.exit(0);
+			}
+		} while (true);
+
+
+		//add user dialog MOVE THIS PLEASE NATHAN
+		addUserGUI addUserGUIdialog = new addUserGUI(user);
+		addUserGUIdialog.pack();
+		addUserGUIdialog.setVisible(true);
+
 		//Client user = new Client("localhost", 8099);
 		Client user = new Client("toolshop.krul.ca", 8099);
 		GUI menu = new GUI();
@@ -51,7 +110,8 @@ public class GUIController {
 		menu.setButton(b6);
 		menu.setButton(b7);
 		menu.setButton(b8);
-		
+
+
 
 		menu.startMainMenu();
 		frame.setContentPane(menu.getMain());
