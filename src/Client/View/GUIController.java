@@ -4,10 +4,8 @@ package Client.View;
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-
 import javax.swing.*;
 import javax.swing.WindowConstants;
-
 import Client.Controller.Client;
 
 public class GUIController {
