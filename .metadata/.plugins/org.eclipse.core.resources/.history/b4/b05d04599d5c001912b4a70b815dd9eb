@@ -115,6 +115,7 @@ public class B6 extends GUIController implements ActionListener{
 	
 	public void display() {
 		int length = 0;
+		System.out.println(orders.toString());
 		length = orders.getJSONArray("orders").length();
 		String [] columnNames = {"Order ID", "Order Date", "Quantity Ordered", "Item Name", "Quantity", "Price", "Company Name", "Company Address", "Sales Contact"};
 		String [][] data = new String[length][columnNames.length];
