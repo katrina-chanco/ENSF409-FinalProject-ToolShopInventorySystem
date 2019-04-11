@@ -31,8 +31,7 @@ public class addUserGUI extends JDialog {
 		try {
 			JSONObject accountTypes = client.getAccountTypes();
 			JSONArray arrayOfTypes = accountTypes.getJSONArray("levels");
-			System.out.println(accountTypes.length());
-			for (int i = 0; i < accountTypes.length()+1; i++) {
+			for (int i = 0; i < arrayOfTypes.length(); i++) {
 				comboBox1.addItem(new AccessLevel(arrayOfTypes.getJSONObject(i).getInt("typeId"),arrayOfTypes.getJSONObject(i).getString("typeName")));
 			}
 
