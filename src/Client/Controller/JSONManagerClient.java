@@ -35,7 +35,6 @@ public class JSONManagerClient{
 	 * @param option the command name for the call ("listAllTools")
 	 */
 	public JSONManagerClient(String option, String userName, String password) {
-		System.out.println(password);
 		jsonObject = new JSONObject();
 		String passwordString = generateMD5(password.toString());
 		jsonObject.put("command", option);
