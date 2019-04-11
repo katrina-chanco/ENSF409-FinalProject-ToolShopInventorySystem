@@ -43,10 +43,11 @@ public class B4 extends GUIController implements ActionListener{
 		int i = JOptionPane.showOptionDialog(null, p,"Search for a tool by name or ID?" ,JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null, s, null);
 		if(i == 0) {
 			String nameSearch = JOptionPane.showInputDialog("Please enter the name of a tool to search for");
+			if(nameSearch == null) {return;}
 			searchName(nameSearch);
 		}else if(i == 1) {
 			String idSearch = JOptionPane.showInputDialog("Please enter the ID of a tool to search for");
-
+			if(idSearch == null) {return;}
 			try{
 				int id = Integer.parseInt(idSearch);
 				searchID(id);
