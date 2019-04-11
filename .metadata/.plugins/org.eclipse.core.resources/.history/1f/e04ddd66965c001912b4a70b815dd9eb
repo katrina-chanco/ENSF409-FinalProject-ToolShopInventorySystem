@@ -85,6 +85,8 @@ public class GUIController {
 		} while (true);
 
 
+		//Client user = new Client("localhost", 8099);
+		//Client user = new Client("toolshop.krul.ca", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");
