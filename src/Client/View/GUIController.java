@@ -83,13 +83,8 @@ public class GUIController {
 		} while (true);
 
 
-		//add user dialog MOVE THIS PLEASE NATHAN
-		addUserGUI addUserGUIdialog = new addUserGUI(user);
-		addUserGUIdialog.pack();
-		addUserGUIdialog.setVisible(true);
-
 		//Client user = new Client("localhost", 8099);
-		Client user = new Client("toolshop.krul.ca", 8099);
+		//Client user = new Client("toolshop.krul.ca", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");

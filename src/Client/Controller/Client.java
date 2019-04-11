@@ -105,7 +105,7 @@ public class Client {
     
     public JSONObject viewOrder(String startDate, String endDate) throws IOException {
     	
-    	JSONManagerClient viewOrderClient = new JSONManagerClient("viewOrder", startDate, endDate);
+    	JSONManagerClient viewOrderClient = new JSONManagerClient("viewOrder", startDate, endDate,"orderList");
     	communicateWithServer(viewOrderClient);
     	
     	if(finalObj.getBoolean("success")){

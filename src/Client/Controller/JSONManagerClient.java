@@ -79,7 +79,7 @@ public class JSONManagerClient{
 		jsonObject.put("amount", amount);
 	}
 	
-	public JSONManagerClient(String option, String start, String end){
+	public JSONManagerClient(String option, String start, String end,String garbage){
 		jsonObject = new JSONObject();
 		jsonObject.put("command", option);
 		jsonObject.put("startDate", start);

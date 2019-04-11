@@ -18,8 +18,9 @@ public class B7 extends GUIController implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
+		addUserGUI addUserGUIdialog = new addUserGUI(client);
+		addUserGUIdialog.pack();
+		addUserGUIdialog.setVisible(true);
 	}
 
 }
