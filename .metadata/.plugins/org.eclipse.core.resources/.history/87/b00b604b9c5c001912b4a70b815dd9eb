@@ -133,18 +133,18 @@ public class B6 extends GUIController implements ActionListener{
 		JFrame frame = new JFrame();
 		frame.setTitle("Order List");
 		frame.add(sp);
-		frame.setMinimumSize(new Dimension(800, 300));
+		frame.setMinimumSize(new Dimension(700, 600));
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}
 	
 	public String[] getRow(int i) {
-		String [] s = new String[9];
+		String [] s = new String[6];
 		JSONObject item = orders.getJSONArray("orders").getJSONObject(i);
 		JSONObject order = item.getJSONObject("order");
-		String orderId = Integer.toString(order.getInt("orderId"));
+		String orderId = order.getString("orderId");
         String orderDate = order.getString("orderDate");
-        String orderQuantity = Integer.toString(order.getInt("quantityOrdered"));
+        String orderQuantity = order.getString("quantityOrdered");
 
         JSONObject orderItem = item.getJSONObject("item");
         String itemName = orderItem.getString("itemName");

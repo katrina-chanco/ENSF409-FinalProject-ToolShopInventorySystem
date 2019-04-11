@@ -116,10 +116,11 @@ public class B6 extends GUIController implements ActionListener{
 	public void display() {
 		int length = 0;
 		System.out.println(orders.toString());
-		length = orders.getJSONArray("orders").length();
-		String [] columnNames = {"Order ID", "Order Date", "Quantity Ordered", "Item Name", "Quantity", "Price", "Company Name", "Company Address", "Sales Contact"};
-		String [][] data = new String[length][columnNames.length];
-		String [] row = new String[columnNames.length];
+		//length = orders.getJSONArray("orders").length();
+		length = 0;
+		String [] columnNames = {"Item Name", "Quantity", "Price", "Supplier", "Supplier ID", "Item ID"};
+		String [][] data = new String[length][6];
+		String [] row = new String[6];
 		for(int i = 0; i < length; i++) {
 			row = getRow(i);
 			data[i] = row;
@@ -133,38 +134,28 @@ public class B6 extends GUIController implements ActionListener{
 		JFrame frame = new JFrame();
 		frame.setTitle("Order List");
 		frame.add(sp);
-		frame.setMinimumSize(new Dimension(800, 300));
+		frame.setMinimumSize(new Dimension(700, 600));
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}
 	
 	public String[] getRow(int i) {
-		String [] s = new String[9];
-		JSONObject item = orders.getJSONArray("orders").getJSONObject(i);
-		JSONObject order = item.getJSONObject("order");
-		String orderId = Integer.toString(order.getInt("orderId"));
-        String orderDate = order.getString("orderDate");
-        String orderQuantity = Integer.toString(order.getInt("quantityOrdered"));
+		String [] s = new String[6];
+		JSONObject item = orders.getJSONArray("itemList").getJSONObject(i);
+		String itemName = item.getString("itemName");
+        String quantity = Integer.toString(item.getInt("quantity"));
+        String price = Integer.toString(item.getInt("price"));
 
-        JSONObject orderItem = item.getJSONObject("item");
-        String itemName = orderItem.getString("itemName");
-        String itemQuantity = orderItem.getString("quantity");
-        String itemPrice = orderItem.getString("price"); 
-        
-        JSONObject orderSupplier = item.getJSONObject("supplier");
-        String supplierName = orderSupplier.getString("companyName");
-        String supplierAddress = orderSupplier.getString("companyAddress");
-        String supplierContact = orderSupplier.getString("salesContact");
-        
-        s[0] = orderId;
-        s[1] = orderDate;
-        s[2] = orderQuantity;
-        s[3] = itemName;
-        s[4] = itemQuantity;
-        s[5] = itemPrice;
-        s[6] = supplierName;
-        s[7] = supplierAddress;
-        s[8] = supplierContact;
+        JSONObject supplier = item.getJSONObject("supplier");
+        String companyName = supplier.getString("companyName");
+        String supplierId = Integer.toString(supplier.getInt("id"));
+        String itemId = Integer.toString(item.getInt("id")); 
+        s[0] = itemName;
+        s[1] = quantity;
+        s[2] = price;
+        s[3] = companyName;
+        s[4] = supplierId;
+        s[5] = itemId;
 		return s;
 	}
 

@@ -133,7 +133,7 @@ public class B6 extends GUIController implements ActionListener{
 		JFrame frame = new JFrame();
 		frame.setTitle("Order List");
 		frame.add(sp);
-		frame.setMinimumSize(new Dimension(800, 300));
+		frame.setMinimumSize(new Dimension(700, 600));
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 	}
