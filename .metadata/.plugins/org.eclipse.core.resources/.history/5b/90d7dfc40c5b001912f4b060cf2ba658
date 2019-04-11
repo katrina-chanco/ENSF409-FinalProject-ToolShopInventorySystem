@@ -11,7 +11,7 @@ import javax.swing.WindowConstants;
 import Client.Controller.Client;
 
 public class GUIController {
-
+	
 	protected GUI menu;
 	protected Client client;
 
@@ -31,8 +31,7 @@ public class GUIController {
 	 */
 	public static void main(String[] args) {
 //		LoadingWindow w = new LoadingWindow();
-	//	Client user = new Client("localhost", 8099);
-		Client user = new Client("toolshop.krul.ca", 8099);
+		Client user = new Client("localhost", 8099);
 		GUI menu = new GUI();
 		GUIController shop = new GUIController(menu, user);
 		JFrame frame = new JFrame("GUI");
@@ -55,7 +54,7 @@ public class GUIController {
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		WindowClose closeListener = new WindowClose(menu, user);
 		frame.addWindowListener(closeListener);
-
+		
 	}
 
 }
