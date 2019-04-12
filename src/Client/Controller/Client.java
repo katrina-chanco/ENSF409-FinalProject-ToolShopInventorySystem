@@ -4,8 +4,6 @@ package Client.Controller;
 // Katrina Chanco - 30037408
 // Evan Krul - 30043180
 
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -39,9 +37,10 @@ public class Client {
     private JSONObject finalObj;
 
 
-
-    /*
-     * Constructor for the client, initializes the sockets 
+    /**
+     * Constructs the Client and initializes the sockets
+     * @param serverName name of the Server used
+     * @param portNumber number of the port
      */
     public Client(String serverName, int portNumber) {
         try{
@@ -56,10 +55,12 @@ public class Client {
 
     }
 
-    
-    /*
-     * Communicates with the server, receives a JSONManagerClient object and sends it to the server
-     * The response from the server is received from the inSocket and returned to the calling function
+
+    /**
+     * Communicates with the Server
+     * Utilizes function calls and a JSONManagerClient object for communicating between the client and server side
+     * @param jObject  JSONManagerClient object
+     * @throws IOException (input/output exception)
      */
     public void communicateWithServer(JSONManagerClient jObject) throws IOException{
 
@@ -82,14 +83,24 @@ public class Client {
 
     }
 
+    /**
+     * Provides a command to communicate the login() call between the client and server
+     * @param userName username of the client
+     * @param password password of the client
+     * @return JSONObject containing login information
+     * @throws IOException (input/output exception)
+     */
     public JSONObject login(String userName, String password) throws IOException {
-        JSONManagerClient inventoryClient = new JSONManagerClient("login",userName,password);
-        communicateWithServer(inventoryClient);
+        JSONManagerClient loginClient = new JSONManagerClient("login", userName, password);
+        communicateWithServer(loginClient);
         return finalObj;
     }
 
-    /*
-     * sends a command to list all tools to the socket
+
+    /**
+     * Provides a command to the listAllTools() call between client and server
+     * @return JSONObject containing list all tools information
+     * @throws IOException (input/output exception)
      */
     public JSONObject listAllTools() throws IOException{
 
@@ -102,7 +113,14 @@ public class Client {
         else
             return null;
     }
-    
+
+    /**
+     * Provides a command to the viewOrder() call between client and server
+     * @param startDate beginning date for the order call
+     * @param endDate end date for the order call
+     * @return JSONObject containing the order requested
+     * @throws IOException (input/output exception)
+     */
     public JSONObject viewOrder(String startDate, String endDate) throws IOException {
     	
     	JSONManagerClient viewOrderClient = new JSONManagerClient("viewOrder", startDate, endDate,"orderList");
@@ -116,18 +134,12 @@ public class Client {
     	
     }
 
-    /*
-     * Sends a quit command to the socket, used to show the client has ended
-     */
-    public JSONObject quit() throws IOException{
-        JSONManagerClient inventoryClient = new JSONManagerClient("QUIT");
-        communicateWithServer(inventoryClient);
-        return finalObj;
-    }
 
-
-    /*
-     * sends a search command to the socket to search by tool name
+    /**
+     * Provides a command to the searchToolName() call between the client and server
+     * @param toolName name of the tool
+     * @return JSONObject containing information about the tool requested
+     * @throws IOException (input/output exception
      */
     public JSONObject searchToolName(String toolName) throws IOException{
 
@@ -142,9 +154,11 @@ public class Client {
         }
 
 
-
-    /*
-     * Sends a search command to the socket to search for a tool by id number
+    /**
+     * Provides a command to the searchToolId() call between the client and server
+     * @param toolId number id of the tool
+     * @return JSONObject containing information about the tool requested
+     * @throws IOException (input/output exception)
      */
     public JSONObject searchToolId (int toolId) throws IOException{
 
@@ -160,8 +174,12 @@ public class Client {
     }
 
 
-    /*
-     * Sends a command to the socket to decrease the quantity of a tool(passed as toolId) by a certain amount(passed as amount)
+    /**
+     * Provides a command to the decreaseQuantity() call between the client and server
+     * @param toolId number id of the tool
+     * @param amount amount user wants to decrease the tool quantity by
+     * @return JSONObject containing information about if the sale was successful or not
+     * @throws IOException (input/output exception)
      */
     public JSONObject decreaseQuantity(int toolId, int amount) throws IOException {
 
@@ -175,24 +193,22 @@ public class Client {
             return null;
         }
     }
-    
-   
-    /*
-     * Closes the sockets
+
+
+    /**
+     * Provides a command to the quit() call between te client and server
+     * @return JSONObject containing information to quit the program
+     * @throws IOException (input/output exception)
      */
-    public void close() {
-    	try {
-			inSocket.close();
-			outSocket.close();
-		} catch (IOException e) {
-			System.err.println("Unable to close sockets");
-		}
-    	
+    public JSONObject quit() throws IOException{
+        JSONManagerClient inventoryClient = new JSONManagerClient("QUIT");
+        communicateWithServer(inventoryClient);
+        return finalObj;
     }
 
     /**
-     * request server for a list of account types
-     * @return json object
+     * Request server for a list of account types
+     * @return JSONObject containing information about the account type
      */
     public JSONObject getAccountTypes() throws IOException {
         JSONManagerClient accountTypes = new JSONManagerClient("getAccountsTypes");
@@ -206,15 +222,29 @@ public class Client {
     }
 
     /**
-     * adds user to server
-     * @param usernameString username
-     * @param passwordString password
-     * @param typeId access level
+     * Adds user to server
+     * @param usernameString username of user
+     * @param passwordString password of user
+     * @param typeId access level of user
      */
     public JSONObject addUser(String usernameString, String passwordString, int typeId) throws IOException {
         JSONManagerClient inventoryClient = new JSONManagerClient("addUser",usernameString,passwordString,typeId);
         communicateWithServer(inventoryClient);
         return finalObj;
+    }
+
+
+    /**
+     * Closes the sockets
+     */
+    public void close() {
+        try {
+            inSocket.close();
+            outSocket.close();
+        } catch (IOException e) {
+            System.err.println("Unable to close sockets");
+        }
+
     }
 }
 

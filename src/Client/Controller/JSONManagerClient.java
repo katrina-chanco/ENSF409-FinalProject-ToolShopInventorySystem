@@ -5,9 +5,7 @@ package Client.Controller;
 // Evan Krul - 30043180
 
 
-
 import org.json.JSONObject;
-
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -41,7 +39,6 @@ public class JSONManagerClient{
 		jsonObject.put("userName", userName);
 		jsonObject.put("password", passwordString);
 	}
-
 
 	/**
 	 * Constructs the JSONManagerClient for searchToolName()
@@ -77,8 +74,16 @@ public class JSONManagerClient{
 		jsonObject.put("number", number);
 		jsonObject.put("amount", amount);
 	}
-	
-	public JSONManagerClient(String option, String start, String end,String garbage){
+
+
+	/**
+	 * Constructs the JSONManagerClient for viewOrder()
+	 * @param option the command name for the call ("viewOrder")
+	 * @param start the start date for the order
+	 * @param end the end date for the order
+	 * @param garbage the order list variable (utilized to overload function)
+	 */
+	public JSONManagerClient(String option, String start, String end, String garbage){
 		jsonObject = new JSONObject();
 		jsonObject.put("command", option);
 		jsonObject.put("startDate", start);
@@ -119,7 +124,7 @@ public class JSONManagerClient{
 	}
 
 	/**
-	 * generates a md5 hash from a string
+	 * Generates a md5 hash from a string
 	 * @param string input
 	 * @return output md5
 	 */
