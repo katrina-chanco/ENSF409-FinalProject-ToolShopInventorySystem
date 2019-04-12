@@ -7,6 +7,7 @@ package Client.View;
 import javax.swing.*;
 import javax.swing.WindowConstants;
 import Client.Controller.Client;
+import Client.CustomerView.*;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -88,38 +89,41 @@ public class GUIController {
 			}
 		} while (true);
 
+		//if user is customer launch their gui
+		if(userReturnJSON.getJSONObject("accessLevel").getInt("typeId")==2) {
+			GUIControllerCustomer.main(null);
+		} else {
 
-		GUI menu = new GUI();
-		GUIController shop = new GUIController(menu, user);
-		JFrame frame = new JFrame("GUI");
+			GUI menu = new GUI();
+			GUIController shop = new GUIController(menu, user);
+			JFrame frame = new JFrame("GUI");
 
-		B1 b1 = new B1(menu, user);
-		B2 b2 = new B2(menu, user);
-		B3 b3 = new B3(menu, user);
-		B4 b4 = new B4(menu, user);
-		B5 b5 = new B5(menu, user);
-		B6 b6 = new B6(menu, user);
-		B7 b7 = new B7(menu, user);
-		B8 b8 = new B8(menu, user);
-		menu.setButton(b1);
-		menu.setButton(b2);
-		menu.setButton(b3);
-		menu.setButton(b4);
-		menu.setButton(b5);
-		menu.setButton(b6);
-		menu.setButton(b7);
-		menu.setButton(b8);
+			B1 b1 = new B1(menu, user);
+			B2 b2 = new B2(menu, user);
+			B3 b3 = new B3(menu, user);
+			B4 b4 = new B4(menu, user);
+			B5 b5 = new B5(menu, user);
+			B6 b6 = new B6(menu, user);
+			B7 b7 = new B7(menu, user);
+			B8 b8 = new B8(menu, user);
+			menu.setButton(b1);
+			menu.setButton(b2);
+			menu.setButton(b3);
+			menu.setButton(b4);
+			menu.setButton(b5);
+			menu.setButton(b6);
+			menu.setButton(b7);
+			menu.setButton(b8);
 
 
-
-		menu.startMainMenu();
-		frame.setContentPane(menu.getMain());
-		frame.setSize(650, 565);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		WindowClose closeListener = new WindowClose(menu, user);
-		frame.addWindowListener(closeListener);
-
+			menu.startMainMenu();
+			frame.setContentPane(menu.getMain());
+			frame.setSize(650, 565);
+			frame.setVisible(true);
+			frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			WindowClose closeListener = new WindowClose(menu, user);
+			frame.addWindowListener(closeListener);
+		}
 	}
 
 }

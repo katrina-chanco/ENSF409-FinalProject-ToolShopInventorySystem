@@ -235,7 +235,10 @@ public class addUserGUI extends JDialog {
 		contentPane.add(label2, gbc);
 	}
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/Customer-GUI-2.0
 	public JComponent $$$getRootComponent$$$() {
 		return contentPane;
 	}
