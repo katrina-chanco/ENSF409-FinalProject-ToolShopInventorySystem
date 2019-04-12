@@ -19,7 +19,6 @@ import Client.Controller.Client;
 /**
  * 
  * Action Listener for the Search button, inherits from GUIController and uses the ActionListener interface
- * Searches for a tool by name or ID
  *
  */
 public class B4 extends GUIController implements ActionListener{

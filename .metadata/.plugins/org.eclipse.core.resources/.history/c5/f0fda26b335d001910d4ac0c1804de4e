@@ -7,6 +7,7 @@ import Client.Controller.Client;
 
 /**
  * Action Listener for the Add User Button
+ * @author Nate
  *
  */
 public class B7 extends GUIController implements ActionListener{
@@ -15,9 +16,6 @@ public class B7 extends GUIController implements ActionListener{
 		super(m, c);
 	}
 
-	/**
-	 * Starts the procedure for adding a user
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		addUserGUI addUserGUIdialog = new addUserGUI(client);

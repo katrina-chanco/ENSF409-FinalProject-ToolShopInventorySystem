@@ -12,10 +12,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.Arrays;
 
-/**
- * Starting point for the application, controls the GUI elements and connection to the client
- *
- */
 public class GUIController {
 
 	protected GUI menu;
@@ -33,8 +29,7 @@ public class GUIController {
 	}
 
 	/**
-	 * Main function for the Client side. 
-	 * Starts with a login, then if successful starts the client connection, and starts the GUI, then sets the actionListeners for the buttons
+	 * Main function for the Client side. Starts the client connection, and starts the GUI, then sets the actionListeners for the buttons
 	 * @param args
 	 */
 	public static void main(String[] args) {

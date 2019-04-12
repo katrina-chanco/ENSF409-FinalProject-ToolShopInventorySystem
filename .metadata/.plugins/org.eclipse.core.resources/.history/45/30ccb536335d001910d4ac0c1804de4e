@@ -17,10 +17,6 @@ import javax.swing.*;
 
 import Client.Controller.Client;
 
-/**
- * Class for displaying the main menu
- *
- */
 public class GUI {
 
 	private JPanel mainMenu; 

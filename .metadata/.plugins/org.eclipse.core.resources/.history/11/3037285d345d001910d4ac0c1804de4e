@@ -55,9 +55,6 @@ public class B5 extends GUIController implements ActionListener{
 		b8 = menu.getB8();
 	}
 	
-	/**
-	 * Displays the new menu, disables all other buttons, and runs the dialog for the easter egg
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		setMainMenu();	

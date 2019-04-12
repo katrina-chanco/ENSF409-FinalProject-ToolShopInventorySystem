@@ -23,11 +23,6 @@ import org.json.JSONObject;
 
 import Client.Controller.Client;
 
-/**
- * An action listener for the list inventory button, lists all the inventory as a table
- * @author Nate
- *
- */
 public class B1 extends GUIController implements ActionListener{
 	/**
 	 * A JSONObject that will receive data from the Client and then be parsed to display the information to the user

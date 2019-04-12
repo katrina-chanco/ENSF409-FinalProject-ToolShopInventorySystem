@@ -14,6 +14,7 @@ import java.util.Arrays;
 
 /**
  * Starting point for the application, controls the GUI elements and connection to the client
+ * @author Nate
  *
  */
 public class GUIController {

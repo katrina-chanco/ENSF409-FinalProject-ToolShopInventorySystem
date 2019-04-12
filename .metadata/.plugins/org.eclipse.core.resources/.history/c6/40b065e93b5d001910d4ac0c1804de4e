@@ -1,6 +1,5 @@
 package Client.View;
 
-
 import java.awt.BorderLayout;
 
 // Nathan Darby - 30033588
@@ -135,7 +134,7 @@ public class B3 extends GUIController implements ActionListener{
 		can.addActionListener(new ActionListener() {
 			
 			/*
-			 * This listener is activated when the cancel button is pressed, the make sale window will then be closed
+			 * This listener is activated when the cancel button is pressed, the insert window will then be closed
 			 * 
 			 */
 			@Override

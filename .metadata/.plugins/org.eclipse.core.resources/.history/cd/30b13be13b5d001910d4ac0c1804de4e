@@ -1,6 +1,5 @@
 package Client.View;
 
-
 import java.awt.BorderLayout;
 
 // Nathan Darby - 30033588
@@ -32,7 +31,8 @@ public class B3 extends GUIController implements ActionListener{
 		super(m, c);
 	}
 	/**
-	 * Displays a window for the user to input information for Name, ID and amount sold
+	 * This method is not operational yet, for testing purposes it prints a message to the console
+	 * This method will be updated for Milestone 3
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -57,9 +57,6 @@ public class B3 extends GUIController implements ActionListener{
 			
 			/*
 			 * This action listener is activated when the make sale button is pressed
-			 * The input from the user is read and if the name and ID fields are blank, input for either one is asked for
-			 * If the name or ID is entered, a search is performed for the tool ID and if successful, the sale command is sent to the client with the ID and amount
-			 * If the name or ID is not found, a display will tell the user the tool is not found
 			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -135,7 +132,7 @@ public class B3 extends GUIController implements ActionListener{
 		can.addActionListener(new ActionListener() {
 			
 			/*
-			 * This listener is activated when the cancel button is pressed, the make sale window will then be closed
+			 * This listener is activated when the cancel button is pressed, the insert window will then be closed
 			 * 
 			 */
 			@Override
