@@ -16,8 +16,8 @@ public class AccountType {
 
 	/**
 	 * constructor
-	 * @param typeId
-	 * @param typeName
+	 * @param typeId type id
+	 * @param typeName type name
 	 */
 	public AccountType(int typeId, String typeName) {
 		this.typeId = typeId;

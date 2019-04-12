@@ -30,7 +30,9 @@ public class JSONManagerClient{
 	}
 	/**
 	 * Constructs the JSONManagerClient for login()
-	 * @param option the command name for the call ("listAllTools")
+	 * @param option login
+	 * @param userName username
+	 * @param password password
 	 */
 	public JSONManagerClient(String option, String userName, String password) {
 		jsonObject = new JSONObject();
