@@ -73,7 +73,7 @@ public class B4 extends GUIController implements ActionListener{
 		}
 		if(search == null) {
 			if(userReturnJSON.getJSONObject("accessLevel").getInt("typeId")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+				JOptionPane.showMessageDialog(null, "Next time try searching for an item that exists!");
 			} else {
 				JOptionPane.showMessageDialog(null, "No item found");
 			}
@@ -105,7 +105,7 @@ public class B4 extends GUIController implements ActionListener{
 		}
 		if(search == null) {
 			if(userReturnJSON.getJSONObject("accessLevel").getInt("typeId")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+				JOptionPane.showMessageDialog(null, "Next time try searching for an item that exists!");
 			} else {
 				JOptionPane.showMessageDialog(null, "No item found");
 			}

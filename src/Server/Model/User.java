@@ -87,6 +87,10 @@ public class User {
 		return validUser;
 	}
 
+	/**
+	 * Gets all the available accounts types.
+	 * @return ArrayList of AccountType
+	 */
 	public ArrayList<AccountType> getAccountTypes() {
 		ArrayList<AccountType> accountTypes = new ArrayList<>();
 		try {

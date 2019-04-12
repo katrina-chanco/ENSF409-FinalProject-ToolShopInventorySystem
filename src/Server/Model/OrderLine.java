@@ -46,33 +46,10 @@ public class OrderLine {
 	 */
 	public OrderLine(int itemId, int quantity, LocalDate dateOrdered) {
 		orderId = new Random().nextInt(99999)+10000;
-		//DateFormat dateFormat = new SimpleDateFormat("MM dd, YYYY");
 		this.dateOrdered = dateOrdered;
 		quantityOrdered = quantity;
-		//orderDate = dateFormat.format(date);
 		this.itemId = itemId;
 
 	}
-
-//	/**
-//	 * Generate orderLine header.
-//	 * @return String of header.
-//	 */
-//	public String getHeader() {
-//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, YYYY");
-//		return "*********************************************************************************\n" +
-//				"Order ID:              "+orderId+"\n" +
-//				"Date Ordered:          "+formatter.format(dateOrdered)+"\n\n";
-//	}
-//
-//	/**
-//	 * Generate orderLine body.
-//	 * @return String of body.
-//	 */
-//	public String getBody() {
-//		return "Item Description:      "+item.getItemName()+"\n" +
-//				"Amount Ordered:        "+quantityOrdered+"\n" +
-//				"Supplier:              "+item.getSupplier().getCompanyName()+"\n\n";
-//	}
 
 }

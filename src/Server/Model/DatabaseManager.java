@@ -2,11 +2,20 @@ package Server.Model;
 
 import Server.Controller.Database;
 
-import java.util.LinkedList;
-
+/**
+ * Abstract database
+ * @param <Type>
+ */
 public abstract class DatabaseManager<Type> {
+	/**
+	 * Database object
+	 */
 	protected Database database;
 
+	/**
+	 * Assigns the database.
+	 * @param database database
+	 */
 	public DatabaseManager(Database database) {
 		this.database = database;
 	}

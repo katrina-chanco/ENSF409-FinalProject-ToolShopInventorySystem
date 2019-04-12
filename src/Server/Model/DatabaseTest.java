@@ -16,6 +16,7 @@ import java.util.LinkedList;
  in a database.
  */
 
+@Deprecated
 public class DatabaseTest {
 	public static void main(String[] args) {
 
@@ -33,8 +34,7 @@ public class DatabaseTest {
 //		ServerShop shop = new ServerShop(inventory,order,database);
 //
 //		//Item item = shop.getInventory().searchByName("Orf Dappers");
-//	//	System.out.println(item.getQuantity());
-//
+//	//	System.out.println(item.getQuantity());//
 //		System.out.println(shop.getOrders().getOrdersForDate("2018-01-01","2019-06-06"));
 //
 //		//shop.addOrder(item,2);

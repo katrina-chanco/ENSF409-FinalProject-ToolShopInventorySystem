@@ -233,8 +233,3 @@ public class Order extends DatabaseManager implements Constants{
 		return new OrderLine(resultSet.getInt("itemId"),resultSet.getInt("quantityOrdered"),date);
 	}
 }
-
-//SELECT orders.orderId,orders.DATE,orderLines.quantityOrdered,items.itemName,items.quantity,items.price,suppliers.supplierId,suppliers.companyName,suppliers.companyAddress,suppliers.salesContact  FROM orders
-// INNER JOIN orderLines ON orders.orderId = orderLines.orderId
-// INNER JOIN items ON orderLines.itemId = items.itemId
-// INNER JOIN suppliers ON items.supplier = suppliers.supplierId
