@@ -235,9 +235,6 @@ public class addUserGUI extends JDialog {
 		contentPane.add(label2, gbc);
 	}
 
-	/**
-	 * @noinspection ALL
-	 */
 	public JComponent $$$getRootComponent$$$() {
 		return contentPane;
 	}

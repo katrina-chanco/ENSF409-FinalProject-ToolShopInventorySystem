@@ -35,7 +35,6 @@ public class B4 extends GUIControllerCustomer implements ActionListener{
 	 * Overrides the actionPerformed method from ActionListener
 	 * Displays a JOptionPane that lets the user choose to pick to search by ID or name
 	 * When the user chooses, the search method is called with the name or id specified
-	 * @Override
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JPanel p = new JPanel();
@@ -72,7 +71,7 @@ public class B4 extends GUIControllerCustomer implements ActionListener{
 		}
 		if(search == null) {
 			if(userReturnJSON.getJSONObject("accessLevel").getInt("typeId")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+				JOptionPane.showMessageDialog(null, "Next time try searching for an item that exists!");
 			} else {
 				JOptionPane.showMessageDialog(null, "No item found");
 			}
@@ -104,7 +103,7 @@ public class B4 extends GUIControllerCustomer implements ActionListener{
 		}
 		if(search == null) {
 			if(userReturnJSON.getJSONObject("accessLevel").getInt("typeId")==4) {
-				JOptionPane.showMessageDialog(null, "Are you a stupid moron? Next time try searching for an item that exists!");
+				JOptionPane.showMessageDialog(null, "Next time try searching for an item that exists!");
 			} else {
 				JOptionPane.showMessageDialog(null, "No item found");
 			}

@@ -13,6 +13,11 @@ public class AccessLevel {
 	 */
 	private String description;
 
+	/**
+	 * Constructor
+	 * @param id
+	 * @param description
+	 */
 	public AccessLevel(int id, String description)
 	{
 		this.id = id;

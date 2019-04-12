@@ -35,7 +35,6 @@ public class B4 extends GUIController implements ActionListener{
 	 * Overrides the actionPerformed method from ActionListener
 	 * Displays a JOptionPane that lets the user choose to pick to search by ID or name
 	 * When the user chooses, the search method is called with the name or id specified
-	 * @Override
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JPanel p = new JPanel();
