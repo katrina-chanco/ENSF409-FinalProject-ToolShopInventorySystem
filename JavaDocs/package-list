@@ -1,4 +1,8 @@
 Client.Controller
+<<<<<<< HEAD
+=======
+Client.CustomerView
+>>>>>>> origin/Customer-GUI-2.0
 Client.View
 Server.Controller
 Server.Model
