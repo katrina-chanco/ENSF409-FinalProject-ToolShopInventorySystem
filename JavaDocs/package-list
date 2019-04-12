@@ -1,4 +1,5 @@
 Client.Controller
+Client.CustomerView
 Client.View
 Server.Controller
 Server.Model
